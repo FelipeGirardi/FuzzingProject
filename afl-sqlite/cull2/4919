@@ -1,0 +1,5 @@
+SELECT *
+FROM (t0), (t0), (t0), (t0)
+WHERE t0=t0.a+1
+AND 0000
+AND t+100;

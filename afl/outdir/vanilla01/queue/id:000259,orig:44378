@@ -1,0 +1,2 @@
+PRAGMA case_sensitive_like; --00000
+SELECT x FROM t0 WHERE x LIKE '000' ORDER BY 1;

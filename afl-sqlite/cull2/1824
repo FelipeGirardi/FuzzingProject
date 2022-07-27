@@ -1,0 +1,26 @@
+CREATE TABLE t1(x, y DEFAULT(datetime('
+
+
+
+
+
+
+
+
+Š
+
+
+
+
+
+
+
+
+
+
+
+
+
+  ;/* */now')));
+INSERT INTO t1(x)VALUES(1);
+SELEC FROM t1;

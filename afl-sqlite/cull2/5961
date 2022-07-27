@@ -1,0 +1,1 @@
+SELECT printf('%d0000%d',5.,- avg(1));

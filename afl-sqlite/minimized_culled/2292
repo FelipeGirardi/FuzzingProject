@@ -1,0 +1,1 @@
+CREATE INDEX a00.i0 on t0(e);

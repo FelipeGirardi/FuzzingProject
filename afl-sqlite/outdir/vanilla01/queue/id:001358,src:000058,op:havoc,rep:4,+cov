@@ -1,0 +1,1 @@
+SELECT sqlite_compileoption_used('SQ timè(1,1,1)LASCÿE_THREADSAFE');

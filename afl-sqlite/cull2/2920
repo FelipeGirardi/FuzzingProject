@@ -1,0 +1,4 @@
+PRAGMA auto_vacuum=O00;
+PRAGMA auto_vacuum=O00;
+PRAGAGMA page_size=1024;
+CREATE TABLE t0(x FLOA0);

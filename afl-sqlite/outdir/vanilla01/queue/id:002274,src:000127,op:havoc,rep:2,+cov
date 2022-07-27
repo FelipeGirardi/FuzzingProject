@@ -1,0 +1,4 @@
+CREATE VIRTUAL TABLE t0 USING FTS4;
+INSERT INTO t0 VALUES('coined by 0');
+SELECT count(*) FROM sqlite_master soundex(1) LIKE 't0%';
+SELECT count(*) FROM sqlite_master WHERE name LIKE '00%';

@@ -1,0 +1,48 @@
+.open --hexdb
+| size 20480 pagesize 4096 filename misc003.txt.db
+| page 1 offset 0
+|      0: 53 51 4c 69 74 65 20 66 6f 72 6d 61 74 20 33 00   SQLite format 3.
+|     16: 10 00 01 01 00 40 20 20 00 00 00 00 00 00 00 05   .....@  ........
+|     32: 00 00 00 00 00 00 00 00 00 00 00 04 00 00 00 04   ................
+|     48: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00   ................
+|     96: 00 00 00 00 0d 00 00 00 04 0f 30 00 0f ac 0f 7e   ..........0....~
+|    112: 0f 58 0f 30 00 00 00 00 00 00 00 00 00 00 00 00   .X.0............
+|   3888: 26 04 06 17 11 11 01 39 74 61 62 6c 65 74 34 74   &......9tablet4t
+|   3904: 34 05 43 52 45 41 54 45 20 54 41 42 4c 45 20 74   4.CREATE TABLE t
+|   3920: 34 28 64 2c 65 2c 66 29 24 03 06 17 11 11 01 35   4(d,e,f)$......5
+|   3936: 74 61 62 6c 65 74 33 74 33 04 43 52 45 41 54 45   tablet3t3.CREATE
+|   3952: 20 54 41 42 4c 45 20 74 33 28 77 2c 7a 29 2c 02    TABLE t3(w,z),.
+|   3968: 06 17 11 11 01 45 74 61 62 6c 65 74 32 74 32 03   .....Etablet2t2.
+|   3984: 43 52 45 41 54 45 20 54 41 42 4c 45 20 74 32 28   CREATE TABLE t2(
+|   4000: 78 30 2c 78 31 2c 79 30 2c 79 31 29 52 01 07 17   x0,x1,y0,y1)R...
+|   4016: 11 11 01 81 0f 74 61 62 6c 65 74 31 74 31 02 43   .....tablet1t1.C
+|   4032: 52 45 41 54 45 20 54 41 42 4c 45 20 74 31 28 0a   REATE TABLE t1(.
+|   4048: 20 20 61 20 49 4e 54 45 47 45 52 20 50 52 49 4d     a INTEGER PRIM
+|   4064: 41 52 59 20 4b 45 59 2c 0a 20 20 62 20 49 4e 54   ARY KEY,.  b INT
+|   4080: 45 47 45 52 2c 0a 20 20 63 20 54 45 58 54 0a 29   EGER,.  c TEXT.)
+| page 2 offset 4096
+|      0: 0d 00 00 00 00 10 00 00 00 00 00 00 00 00 00 00   ................
+| page 3 offset 8192
+|      0: 0d 00 00 00 00 10 00 00 00 00 00 00 00 00 00 00   ................
+| page 4 offset 12288
+|      0: 0d 00 00 00 00 10 00 00 00 00 00 00 00 00 00 00   ................
+| page 5 offset 16384
+|      0: 0d 00 00 00 00 10 00 00 00 00 00 00 00 00 00 00   ................
+| end misc003.txt.db
+.testctrl prng_seed 1 db
+.testctrl internal_functions
+INSERT INTO t1(a,b,c) VALUES(1,2,'three');
+INSERT INTO t3(w,z) VALUES(2,99);
+INSERT INTO t4(d,e,f) VALUES(9,2,1),(8,7,6);
+CREATE TRIGGER temp.r1 AFTER UPDATE OF b ON t1
+WHEN new.b+new.c IS NOT NULL BEGIN
+INSERT INTO t2(x0,x1,y0,y1) VALUES(old.b,new.b,old.c,new.c);
+UPDATE t3 SET z=new.b WHERE w=old.b;
+DELETE FROM t4 WHERE d=new.b AND e=old.b AND f=old.a;
+END;
+UPDATE t1 SET b=9, c='xyzzy' WHERE a=1;
+SELECT 't1:', *, '|' FROM t1;
+SELECT 't2:', *, '|' FROM t2;
+SELECT 't3:', *, '|' FROM t3;
+SELECT 't4:', *, '|' FROM t4;
+

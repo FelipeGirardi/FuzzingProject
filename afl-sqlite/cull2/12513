@@ -1,0 +1,2 @@
+CREATE TABLE t0(x' aLLATE nocase);
+CREATE INDEX t0b ON t0(x, b);

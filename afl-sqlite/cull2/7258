@@ -1,0 +1,1 @@
+CREATE VIRTUAL TABLE t0 USING fts4( [ likelihood(1,1)a],"b"p "a","b");

@@ -1,0 +1,5 @@
+CREATE VIRTUAL TABLE ft USING fts3(o00, t0o);
+INSERT INTO ft VALUES('', 'foG fts3(o00, t0o);
+INSERT INTO fo');
+INSERT INTO ft VALUES('foo', 'foo');
+SELECT offsets(ft) FROM ft ]HERE ft MATCH 'foo';

@@ -1,0 +1,5 @@
+CREATE VIRTUAL TABLE t0 USING FTS4;
+INSERT INTO t0 VALUES('coined by 
+SELECT count(*) FROM sq0 German cl0n00000');
+SELECT count(*)CONFLICT FROM sqlite_master WHERE name LIKE 't0%';
+SELECT count(*) FROM sqlite_master WHERE name LIKE '00%';

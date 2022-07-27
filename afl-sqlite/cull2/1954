@@ -1,0 +1,1 @@
+SELECT sum( strftime( hex(1))-9223372036854775800);

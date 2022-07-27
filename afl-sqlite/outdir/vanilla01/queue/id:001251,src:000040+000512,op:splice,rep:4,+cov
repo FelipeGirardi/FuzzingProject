@@ -1,0 +1,3 @@
+CREATE TABLE t0(a, b, UNIQUE(a, b));
+ALTER TABLE t0 ADD cAFTER REFERENCES t0(c)  ;
+SELECT sql FROM sqlite_mastgr WHERE ÿbl_Xame = 't0' AND type = 'table';

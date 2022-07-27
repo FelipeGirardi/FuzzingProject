@@ -1,0 +1,31 @@
+.open --hexdb
+| size 8192 pagesize 4096 filename fkey006.txt.db
+| page 1 offset 0
+|      0: 53 51 4c 69 74 65 20 66 6f 72 6d 61 74 20 33 00   SQLite format 3.
+|     16: 10 00 01 01 00 40 20 20 00 00 00 00 00 00 00 02   .....@  ........
+|     32: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 04   ................
+|     48: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00   ................
+|     96: 00 00 00 00 0d 00 00 00 01 0f 9f 00 0f 9f 00 00   ................
+|   3984: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 5f   ..............._
+|   4000: 01 07 17 11 11 01 81 29 74 61 62 6c 65 74 31 74   .......)tablet1t
+|   4016: 31 02 43 52 45 41 54 45 20 54 41 42 4c 45 20 74   1.CREATE TABLE t
+|   4032: 31 28 78 20 49 4e 54 45 47 45 52 20 50 52 49 4d   1(x INTEGER PRIM
+|   4048: 41 52 59 20 4b 45 59 2c 20 70 61 72 65 6e 74 20   ARY KEY, parent 
+|   4064: 52 45 46 45 52 45 4e 43 45 53 20 74 31 20 4f 4e   REFERENCES t1 ON
+|   4080: 20 44 45 4c 45 54 45 20 43 41 53 43 41 44 45 29    DELETE CASCADE)
+| page 2 offset 4096
+|      0: 0d 00 00 00 03 0f f0 00 0f fb 0f f6 0f f0 00 00   ................
+|   4080: 04 03 03 00 01 02 03 02 03 00 09 03 01 03 00 00   ................
+| end fkey006.txt.db
+.testctrl prng_seed 1 db
+.testctrl internal_functions
+PRAGMA foreign_key=on;
+INSERT OR REPLACE INTO t1 VALUES(2, 3);
+CREATE TABLE Foo (Id INTEGER PRIMARY KEY, ParentId INTEGER REFERENCES Foo(Id) ON DELETE CASCADE, C1);
+INSERT OR REPLACE INTO Foo(Id, ParentId, C1) VALUES (1, null, 'A');
+INSERT OR REPLACE INTO Foo(Id, ParentId, C1) VALUES (2, 1, 'A-2-1');
+INSERT OR REPLACE INTO Foo(Id, ParentId, C1) VALUES (3, 2, 'A-3-2');
+INSERT OR REPLACE INTO Foo(Id, ParentId, C1) VALUES (4, 3, 'A-4-3');
+INSERT OR REPLACE INTO Foo(Id, ParentId, C1) VALUES (2, 3, 'A-2-3');
+SELECT * FROM Foo;
+

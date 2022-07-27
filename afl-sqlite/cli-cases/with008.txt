@@ -1,0 +1,28 @@
+.open --hexdb
+| size 8192 pagesize 4096 filename with008.txt.db
+| page 1 offset 0
+|      0: 53 51 4c 69 74 65 20 66 6f 72 6d 61 74 20 33 00   SQLite format 3.
+|     16: 10 00 01 01 00 40 20 20 00 00 00 00 00 00 00 02   .....@  ........
+|     32: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 04   ................
+|     48: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00   ................
+|     96: 00 00 00 00 0d 00 00 00 01 0f dc 00 0f dc 00 00   ................
+|   4048: 00 00 00 00 00 00 00 00 00 00 00 00 22 01 06 17   ................
+|   4064: 11 11 01 31 74 61 62 6c 65 74 30 74 30 02 43 52   ...1tablet0t0.CR
+|   4080: 45 41 54 45 20 54 41 42 4c 45 20 74 30 28 78 29   EATE TABLE t0(x)
+| page 2 offset 4096
+|      0: 0d 00 00 00 00 10 00 00 00 00 00 00 00 00 00 00   ................
+| end with008.txt.db
+.testctrl prng_seed 1 db
+.testctrl internal_functions
+WITH t1(c1) AS MATERIALIZED (
+WITH t2(c2) AS MATERIALIZED (SELECT 1230+4)
+SELECT (
+WITH t3(c3) AS (
+WITH t4(c4) AS (
+WITH t5(c5) AS MATERIALIZED (SELECT 1 GROUP BY 1)
+SELECT c5 FROM t5 NATURAL JOIN t5 WHERE abs(~c2) = 1235)
+SELECT (SELECT c4 FROM t4) FROM t4 WHERE c2 = 1234)
+SELECT c3 FROM t3 NATURAL JOIN t3)
+FROM t2)
+SELECT c1 FROM t1 NATURAL JOIN t1;
+

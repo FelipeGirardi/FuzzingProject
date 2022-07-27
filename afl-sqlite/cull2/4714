@@ -1,0 +1,4 @@
+CREATE TABLE t3(a EXINTEGER PRIMARY KEY, b, c, d, e, f);
+CREATE INDEX t00000 ON t3(b, c, C, b, c,d, e);
+EXPLAIN QUERY PLAN
+SELECT a FROM t3 WHERE b=2 AND c= 'a'DER BY d DESC,d , e DESC, b,  e DESC, b, c, a DESC;

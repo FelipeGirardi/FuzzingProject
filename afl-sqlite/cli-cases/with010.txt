@@ -1,0 +1,90 @@
+.open --hexdb
+| size 24576 pagesize 4096 filename with010.txt.db
+| page 1 offset 0
+|      0: 53 51 4c 69 74 65 20 66 6f 72 6d 61 74 20 33 00   SQLite format 3.
+|     16: 10 00 01 01 00 40 20 20 00 00 00 00 00 00 00 06   .....@  ........
+|     32: 00 00 00 00 00 00 00 00 00 00 00 07 00 00 00 04   ................
+|     48: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00   ................
+|     96: 00 00 00 00 0d 00 00 00 07 0d d3 00 0f c6 0f 80   ................
+|    112: 0f 3a 0e b7 0e 71 0e 2b 0d d3 00 00 00 00 00 00   .:...q.+........
+|   3536: 00 00 00 56 07 07 15 11 11 08 81 1b 76 69 65 77   ...V........view
+|   3552: 74 32 74 32 43 52 45 41 54 45 20 56 49 45 57 20   t2t2CREATE VIEW 
+|   3568: 74 32 20 41 53 0a 20 20 53 45 4c 45 43 54 20 2a   t2 AS.  SELECT *
+|   3584: 20 46 52 4f 4d 20 74 32 5f 61 0a 20 20 55 4e 49    FROM t2_a.  UNI
+|   3600: 4f 4e 20 41 4c 4c 0a 20 20 53 45 4c 45 43 54 20   ON ALL.  SELECT 
+|   3616: 2a 20 46 52 4f 4d 20 74 32 5f 62 44 06 06 17 15   * FROM t2_bD....
+|   3632: 15 01 6d 74 61 62 6c 65 74 32 5f 62 74 32 5f 62   ..mtablet2_bt2_b
+|   3648: 06 43 52 45 41 54 45 20 54 41 42 4c 45 20 74 32   .CREATE TABLE t2
+|   3664: 5f 62 28 6b 20 49 4e 54 45 47 45 52 20 50 52 49   _b(k INTEGER PRI
+|   3680: 4d 41 52 59 20 4b 45 59 2c 20 76 20 54 45 58 54   MARY KEY, v TEXT
+|   3696: 29 44 05 06 17 15 15 01 6d 74 61 62 6c 65 74 32   )D......mtablet2
+|   3712: 5f 61 74 32 5f 61 05 43 52 45 41 54 45 20 54 41   _at2_a.CREATE TA
+|   3728: 42 4c 45 20 74 32 5f 61 28 6b 20 49 4e 54 45 47   BLE t2_a(k INTEG
+|   3744: 45 52 20 50 52 49 4d 41 52 59 20 4b 45 59 2c 20   ER PRIMARY KEY, 
+|   3760: 76 20 54 45 58 54 29 81 00 04 07 15 11 11 08 81   v TEXT).........
+|   3776: 6f 76 69 65 77 74 31 74 31 43 52 45 41 54 45 20   oviewt1t1CREATE 
+|   3792: 56 49 45 57 20 74 31 20 41 53 0a 20 20 53 45 4c   VIEW t1 AS.  SEL
+|   3808: 45 43 54 20 61 2c 20 62 20 46 52 4f 4d 20 74 31   ECT a, b FROM t1
+|   3824: 5f 61 0a 20 20 55 4e 49 4f 4e 20 41 4c 4c 0a 20   _a.  UNION ALL. 
+|   3840: 20 53 45 4c 45 43 54 20 63 2c 20 64 20 46 52 4f    SELECT c, d FRO
+|   3856: 4d 20 74 31 5f 62 0a 20 20 55 4e 49 4f 4e 20 41   M t1_b.  UNION A
+|   3872: 4c 4c 0a 20 20 53 45 4c 45 43 54 20 65 2c 20 66   LL.  SELECT e, f
+|   3888: 20 46 52 4f 4d 20 74 31 5f 63 44 03 06 17 15 15    FROM t1_cD.....
+|   3904: 01 6d 74 61 62 6c 65 74 31 5f 63 74 31 5f 63 04   .mtablet1_ct1_c.
+|   3920: 43 52 45 41 54 45 20 54 41 42 4c 45 20 74 31 5f   CREATE TABLE t1_
+|   3936: 63 28 65 20 49 4e 54 45 47 45 52 20 50 52 49 4d   c(e INTEGER PRIM
+|   3952: 41 52 59 20 4b 45 59 2c 20 66 20 54 45 58 54 29   ARY KEY, f TEXT)
+|   3968: 44 02 06 17 15 15 01 6d 74 61 62 6c 65 74 31 5f   D......mtablet1_
+|   3984: 62 74 31 5f 62 03 43 52 45 41 54 45 20 54 41 42   bt1_b.CREATE TAB
+|   4000: 4c 45 20 74 31 5f 62 28 63 20 49 4e 54 45 47 45   LE t1_b(c INTEGE
+|   4016: 52 20 50 52 49 4d 41 52 59 20 4b 45 59 2c 20 64   R PRIMARY KEY, d
+|   4032: 20 54 45 58 54 29 38 01 06 17 15 15 01 55 74 61    TEXT)8......Uta
+|   4048: 62 6c 65 74 31 5f 61 74 31 5f 61 02 43 52 45 41   blet1_at1_a.CREA
+|   4064: 54 45 20 54 41 42 4c 45 20 74 31 5f 61 28 61 20   TE TABLE t1_a(a 
+|   4080: 49 4e 54 45 47 45 52 2c 20 62 20 54 45 58 54 29   INTEGER, b TEXT)
+| page 2 offset 4096
+|      0: 0d 00 00 00 02 0f ef 00 0f f8 0f ef 00 00 00 00   ................
+|   4064: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 07   ................
+|   4080: 02 03 00 15 66 6f 75 72 06 01 03 00 13 6f 6e 65   ....four.....one
+| page 3 offset 8192
+|      0: 0d 00 00 00 01 0f fb 00 0f fb 00 00 00 00 00 00   ................
+|   4080: 00 00 00 00 00 00 00 00 00 00 00 03 00 03 00 00   ................
+| page 4 offset 12288
+|      0: 0d 00 00 00 01 0f fb 00 0f fb 00 00 00 00 00 00   ................
+|   4080: 00 00 00 00 00 00 00 00 00 00 00 03 00 03 00 00   ................
+| page 5 offset 16384
+|      0: 0d 00 00 00 02 0f f2 00 0f f9 0f f2 00 00 00 00   ................
+|   4080: 00 00 05 04 03 00 11 69 76 05 02 03 00 11 69 69   .......iv.....ii
+| page 6 offset 20480
+|      0: 0d 00 00 00 00 10 00 00 00 00 00 00 00 00 00 00   ................
+| end with010.txt.db
+.testctrl prng_seed 1 db
+.testctrl internal_functions
+WITH c1(x) AS (VALUES(0) UNION ALL SELECT 100+x FROM c1 WHERE x<100 UNION ALL SELECT 1+x FROM c1 WHERE x<1)
+SELECT x, y
+  FROM c1 AS x1, (SELECT x+1 AS y FROM c1 WHERE x<1) AS x2
+UNION ALL
+SELECT x, y
+  FROM c1 AS x1, (SELECT 1+x AS y FROM c1 WHERE 1<x) AS x2
+ ORDER BY x, y;
+
+WITH c1(x) AS (VALUES(0) UNION ALL SELECT 100+x FROM c1 WHERE x<100 UNION ALL SELECT 1+x FROM c1 WHERE x<1)
+SELECT x, y
+  FROM c1 AS x1, (SELECT x+1 AS y FROM c1 WHERE x<1 UNION ALL SELECT 1+x FROM c1 WHERE 1<x) AS x2
+ ORDER BY x, y;
+WITH c1(x) AS (SELECT k FROM t2 UNION ALL SELECT 100+x FROM c1 WHERE x<100 UNION ALL SELECT 1+x FROM c1 WHERE x<1)
+SELECT x, y
+  FROM c1 AS x1, (SELECT x+1 AS y FROM c1 WHERE x<1 UNION ALL SELECT 1+x FROM c1 WHERE 1<x) AS x2
+ ORDER BY x, y;
+
+WITH c1(x) AS (VALUES(0) UNION ALL SELECT 100+x FROM c1 WHERE x<100 UNION ALL SELECT 1+x FROM c1 WHERE x<1)
+SELECT x, y, k
+  FROM c1 AS x1, (SELECT x+1 AS y FROM c1 WHERE x<1 UNION ALL SELECT 1+x FROM c1 WHERE 1<x) AS x2, t2
+ ORDER BY x, y, k;
+
+WITH c1(x) AS (VALUES(0) UNION ALL SELECT 100+x FROM c1 WHERE x<100 UNION ALL SELECT 1+x FROM c1 WHERE x<1),
+     t4(k,v) AS (SELECT * FROM t2_a UNION ALL SELECT * FROM t2_b)
+SELECT x, y, k
+  FROM c1 AS x1, (SELECT x+1 AS y FROM c1 WHERE x<1 UNION ALL SELECT 1+x FROM c1 WHERE 1<x) AS x2, t4
+ ORDER BY x, y, k;
+

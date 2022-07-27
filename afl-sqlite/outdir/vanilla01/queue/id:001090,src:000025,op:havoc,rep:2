@@ -1,0 +1,2 @@
+ATTACH null IS null;
+AT zeroblob(1)';

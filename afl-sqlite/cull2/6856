@@ -1,0 +1,2 @@
+CREATE TABLE t0(a, b);
+SELECT  "a","b""","b""a","ba","b",a FROM (SELECT count(*)a FROM t0) WHERE a==0;

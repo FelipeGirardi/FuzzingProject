@@ -1,0 +1,3 @@
+CREATE VIRTUAL TABLE t0 USING fts3(a, b, c);
+INSERT INTO t0(a, b, c) VALUES('one t0ree four', '000 0o00', 'one two');
+SELECT a, b, c FROM t0 WHERE c MATCH 'two';

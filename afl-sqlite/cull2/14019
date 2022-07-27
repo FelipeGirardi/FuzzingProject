@@ -1,0 +1,2 @@
+CREATE VIRTUAL TABLE NOTNULLt0 USING fts4( "a","b"p "a","
+");

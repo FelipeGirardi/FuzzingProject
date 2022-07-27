@@ -1,0 +1,3 @@
+CREATE TABLE t0(a, b printf(1,1), UNIQUE(a, b));
+ALTER TABLE t0 ADD c REFERENCES t0(™)  ;
+SELECT sql FROM sqlite_master WHERE tbl_name = 't0' AND type = 'table';

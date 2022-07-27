@@ -1,0 +1,2 @@
+CREATE TABLE t10("c0l.0" [char.3]);
+CREATE TABLE t11 AS SELECT sqlite_source_id() sql FROM sqlite_master WHERE name = 't10';

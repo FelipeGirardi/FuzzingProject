@@ -1,0 +1,51 @@
+.open --hexdb
+| size 16384 pagesize 4096 filename json003.txt.db
+| page 1 offset 0
+|      0: 53 51 4c 69 74 65 20 66 6f 72 6d 61 74 20 33 00   SQLite format 3.
+|     16: 10 00 01 01 00 40 20 20 00 00 00 00 00 00 00 04   .....@  ........
+|     32: 00 00 00 00 00 00 00 00 00 00 00 04 00 00 00 04   ................
+|     48: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00   ................
+|     96: 00 00 00 00 0d 00 00 00 03 0f 94 00 0f dc 0f b8   ................
+|    112: 0f 94 00 00 00 00 00 00 00 00 00 00 00 00 00 00   ................
+|   3984: 00 00 00 00 22 03 06 17 11 11 01 31 74 61 62 6c   ...........1tabl
+|   4000: 65 74 33 74 33 04 43 52 45 41 54 45 20 54 41 42   et3t3.CREATE TAB
+|   4016: 4c 45 20 74 33 28 7a 29 22 02 06 17 11 11 01 31   LE t3(z).......1
+|   4032: 74 61 62 6c 65 74 32 74 32 03 43 52 45 41 54 45   tablet2t2.CREATE
+|   4048: 20 54 41 42 4c 45 20 74 32 28 79 29 22 01 06 17    TABLE t2(y)....
+|   4064: 11 11 01 31 74 61 62 6c 65 74 31 74 31 02 43 52   ...1tablet1t1.CR
+|   4080: 45 41 54 45 20 54 41 42 4c 45 20 74 31 28 78 29   EATE TABLE t1(x)
+| page 2 offset 4096
+|      0: 0d 00 00 00 00 10 00 00 00 00 00 00 00 00 00 00   ................
+| page 3 offset 8192
+|      0: 0d 00 00 00 00 10 00 00 00 00 00 00 00 00 00 00   ................
+| page 4 offset 12288
+|      0: 0d 00 00 00 00 10 00 00 00 00 00 00 00 00 00 00   ................
+| end json003.txt.db
+.testctrl prng_seed 1 db
+.testctrl internal_functions
+INSERT INTO t1(x) VALUES
+('{"a":null,
+"b":true,
+"c":false,
+"d":123,
+"e":-456,
+"f":123.0,
+"g":-123.5e+10,
+"h":[1,true,17.25e-4,{"x":5,"y":10},[1,2,3,4E3]],
+"i":{"x":5,"y":10,"z":[1,true,17.25e-4,{"x":5,"y":10},[1,2,3]]},
+"j":"abc\f\n\r\t\\\/\"\u0099xyz"}'),('["abcdefg","uvwxyz",99.99e+99,0]');
+INSERT INTO t2(y) VALUES('$'),('$.a'),('$.h[3].y'),('$.i.z[4][2]'),('$[2]'),
+('$.k');
+INSERT INTO t3
+SELECT json_extract(t1.x,t2.y) FROM t1, t2;
+INSERT INTO t3
+SELECT json_replace(t1.x,t2.y,json_object('one',t1.rowid,'two',t2.rowid),'three',t2.y) FROM t1, t2;
+INSERT INTO t3
+SELECT json_insert(t1.x,t2.y,json_object('one',t1.rowid,'two',t2.rowid),'three',t2.y) FROM t1, t2;
+INSERT INTO t3
+SELECT json_set(t1.x,t2.y,json_object('one',t1.rowid,'two',t2.rowid,'three',t2.y)) FROM t1, t2;
+INSERT INTO t3
+SELECT json_remove(t1.x,t2.y) FROM t1, t2;
+SELECT rowid, json_valid(z) FROM t3;
+SELECT A.rowid, B.rowid, json_patch(A.z,B.z) FROM t3 AS A, t3 AS B;
+

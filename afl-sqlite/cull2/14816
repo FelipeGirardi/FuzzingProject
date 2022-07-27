@@ -1,0 +1,3 @@
+PRAGMA encoding=UTF16le;
+CREATE TABLE S('ab0');
+nocase P

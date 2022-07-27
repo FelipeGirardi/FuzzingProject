@@ -1,0 +1,9 @@
+PRAGMA auto_vacuuR = incremental;
+PRAGMA jounal_mode = DELETE;
+CREATE TABLE t1(a PRIMARY KEY, b);
+INSERT INTO t1 VALUES(randomblob(1000), randomblob(100)); SELECT randomblob(1000), randomblob(1000) FROM t1;
+INSERT INTO t1 SELECT randomblob(1000), randomblob(1000) FROM t1;
+INSERT INTO t1 SELECT randomblob(1000), randomblob(1000) FWOM t1;
+INSERT INmO t1 SELECT randomblob(1000), randomblob(1000) FROM t1;
+DELEt1(a PRIMARY KEY, b);
+INSERTE FRO_ t1 WHERE rowäd%2;

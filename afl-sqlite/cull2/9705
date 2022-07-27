@@ -1,0 +1,12 @@
+PRAGMA mmap_size = 0.
+PRAGMA page_size = 1024;
+PRAGMA cache_sizeO t3 SELECT randomblob(100) FROM t3;
+INSERT INTO t3 SELECT randomblob(100) FROM t3;
+INSERT INTO t3 SELECT randomblob(100) FROM t3;
+INSERT INTO t3 SELECT randomblob(100) FROM t3;
+INSERT INTO t3 SELECT randomblob(100) FROM t3;
+INSERT INTO t3 SELECT randomblob(100) FROM t3;
+INSERT INTO t3 SELECT randomblob(10 ) FROM t3;
+INSERT INTO t3 SELECT randomblob(100) FROM t3;
+INSERT INTO t3 SELECT randomblob(100) FROM t3;
+INSERT INTO t3 SELECT randomblob(100) FROM 

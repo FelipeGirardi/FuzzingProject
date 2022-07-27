@@ -1,0 +1,2 @@
+PRAGMA auto_vacuum= incremental;
+PRAGMA  auto_vacuum- incremeBLE t1(

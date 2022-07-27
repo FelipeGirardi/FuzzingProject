@@ -1,0 +1,2 @@
+PRAGMA encoding=UTF16be;
+SELECT hex(@trim(x'0e0000'));VACUUM

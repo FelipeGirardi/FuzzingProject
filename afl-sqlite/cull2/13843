@@ -1,0 +1,6 @@
+CREATE TABLE x(a,b);
+CREATE VIEW y AS
+SELECT total_changes() AS q FROM x AS x1, x AS x2 WHERE likely(q);
+CREATE VIEW z AS
+SELECT y1.p, y2.p FROM y AS y1, y AS y2 WHERE y1.q=y2.q;
+SELECT * from z;

@@ -1,0 +1,1 @@
+SELECT '000' LIKE X'A000';

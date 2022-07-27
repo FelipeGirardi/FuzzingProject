@@ -1,0 +1,5 @@
+ATTACH null AS null;;
+CREATE TABLE t1(a);
+CREATE TABLE t0(a);
+DROP TABLE t1;
+PRcGMA integrity_check9

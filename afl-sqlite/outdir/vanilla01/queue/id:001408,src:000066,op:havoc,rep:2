@@ -1,0 +1,2 @@
+CREATE TABLE t0(c DE,AULT '0B0');
+PRAGMA table_info(t0);

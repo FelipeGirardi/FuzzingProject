@@ -1,0 +1,12 @@
+CREATE TABLE t1(a, b);
+INSERT INTO t1 VALUES(randomblob(10),randomblob(4000)); 
+INSERT INTO t1 SELECT randomblob(10),randomblob(4000) FROM t1;
+INSERT INTO t1 SELECT randomblob(10),randomblob(4000) FROM t1; --00000
+INSERT INTO t1 SELECT randomblob(10),randomblob(4000) FROM t1; --00000
+INSERT INTO t1 SELECT randomblob(10),randomblob(4000) FROM t1;  
+INSERT INTO t1 SELECT randomblob(10),randomblob(4000) FROM t1; --00000
+INSERT INTO t1 SELECT randomblob(10),randomblob(4000) FROM t1; --00000
+INSERT INTO t1 SELECT randomblob(10),randomblob(4000) FROM t1; --00000
+INSERT INTO t1 SELECT randomblob(10),randomblob(4000) FROM t1;  
+INSERT INTO t1 SELECT randomblob(10), randomblob(4000) FROM t1;   --00000
+SELECT count(*) FROM t1;

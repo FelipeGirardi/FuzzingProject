@@ -1,0 +1,5 @@
+CREATE TABLE t0(x sqlite_compileoption_get(1));
+INSERT INTO t0 VALUES('h');
+INSERT INTO t0 VALUES('000000');
+SELECT 1, x FROM t0 WHERE x LIKE '%h%';
+SELECT 2, x FROM t0 WHERE x LIKE '%h%' ESCAPE'ÿ€';

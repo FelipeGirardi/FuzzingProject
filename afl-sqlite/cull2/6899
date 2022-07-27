@@ -1,0 +1,1 @@
+SELECT zeroblob(1 || 0) LIKE '000';

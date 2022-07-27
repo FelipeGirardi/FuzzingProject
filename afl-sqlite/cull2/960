@@ -1,0 +1,1 @@
+SELECT printf('%d0000%d', ltrim(1,11));

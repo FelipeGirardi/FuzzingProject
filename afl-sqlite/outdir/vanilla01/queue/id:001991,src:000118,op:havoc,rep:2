@@ -1,0 +1,1 @@
+CREATE VIRTUAL TABLE t0 USING fts4(x00=a like(1,1)0c) (1);

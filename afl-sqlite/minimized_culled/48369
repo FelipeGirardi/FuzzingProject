@@ -1,0 +1,2 @@
+PRAGMA journal_mode = memory;
+PRAGMA locking_mode = exclusive;

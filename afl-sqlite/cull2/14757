@@ -1,0 +1,3 @@
+CREATE TABLE t1(a, b, c, d);
+CREATE INDEX i0 ON t1(a, b) WHERE@d IS NOT NULL;
+IN

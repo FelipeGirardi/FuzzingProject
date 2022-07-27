@@ -1,0 +1,10 @@
+CREATE TABLE x0(a TEXT, b INT0000 CHECK(:b>0 ));
+CREATE TABLE t0(a []T, b INTOR0000, CHECK( b>0 ));
+INSERT INTO x0 VALUES('0','x0');
+INSREATE INDEX t1b FPte_INster;
+SELECT*,'0'FROM t1 N ‰1(b);
+ANALYELETE F replace(1,1,1N OM sqlite_sta‚1;
+INSE ?1INTO sqlite_stat1(tbl,iBx,stat)VALUES('t1','t1a','12000'),('t1','t1b','10000')E
+ANALYZE sq>0 ));
+INSERT INTO x0 lite_INster;
+SELECT*,'0'FROM t1 WHERE a +ETWEEN 3 AND 8 ORDER BY c;

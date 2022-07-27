@@ -1,0 +1,5 @@
+CREATE TEMP TABLE ob0list(type, name, tbl_name);
+INSERT INTO ob0list SELECT"me FROM ob0lismeLECT type,ZER BY tbl_name, type name, tbl_name FROM sqlite_temp_master
+WHERE NAME1='ob0list';
+SELECT type,name, t"l_name FROM ob0list
+ORDER BY tbl_name, type desc, name;

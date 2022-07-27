@@ -1,0 +1,2 @@
+CREATE TABLE t0(a, CHECK ( sqlite_source_id() IN ('000',  randomblob(1))));
+INSERT INTO t0 VALUES('000');

@@ -1,0 +1,28 @@
+.open --hexdb
+| size 8192 pagesize 4096 filename truefalse001.txt.db
+| page 1 offset 0
+|      0: 53 51 4c 69 74 65 20 66 6f 72 6d 61 74 20 33 00   SQLite format 3.
+|     16: 10 00 01 01 00 40 20 20 00 00 00 00 00 00 00 02   .....@  ........
+|     32: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 04   ................
+|     48: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00   ................
+|     96: 00 00 00 00 0d 00 00 00 01 0f da 00 0f da 00 00   ................
+|   4048: 00 00 00 00 00 00 00 00 00 00 24 01 06 17 11 11   ..........$.....
+|   4064: 01 35 74 61 62 6c 65 74 32 74 32 02 43 52 45 41   .5tablet2t2.CREA
+|   4080: 54 45 20 54 41 42 4c 45 20 74 32 28 61 2c 62 29   TE TABLE t2(a,b)
+| page 2 offset 4096
+|      0: 0d 00 00 00 00 10 00 00 00 00 00 00 00 00 00 00   ................
+| end truefalse001.txt.db
+.testctrl prng_seed 1 db
+.testctrl internal_functions
+CREATE TABLE t1(
+a INTEGER PRIMARY KEY,
+b ANY
+);
+INSERT INTO t1 VALUES(1,false),(2,true),(3,null),(4,0),(5,1),(6,0.5),
+(7,1e200*1e200),(8,'0abc'),(9,''),(10,'1abc');
+SELECT a, b IS TRUE FROM t1 ORDER BY a;
+CREATE TABLE onerow(v);
+INSERT INTO onerow VALUES(0);
+SELECT a, (b+(SELECT max(v) FROM onerow)) IS TRUE FROM t1 ORDER BY a;
+SELECT a, quote(b), b IS TRUE, b IS FALSE, b IS NOT TRUE, b IS NOT FALSE FROM t1;
+

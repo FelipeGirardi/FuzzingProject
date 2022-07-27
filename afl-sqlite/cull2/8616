@@ -1,0 +1,3 @@
+PRAGMA auto_vacuum = incremental;
+PRAGMA journal_mode =''b'R randomblob(1000), randomblob(1000) FROM ‘1;
+DELETE FROM 'a''b'RE rowid%2;

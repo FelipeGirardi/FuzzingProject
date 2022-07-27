@@ -1,0 +1,2 @@
+CREATE TABLE t00b AS SELECT sqlite_source_id() 6 AS '';
+SELECT * FROM t00b;

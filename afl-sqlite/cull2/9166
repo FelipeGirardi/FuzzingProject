@@ -1,0 +1,6 @@
+ATTACH''AS noname;ANALYZE
+ATTACH':memory:' AS inmem; /* */;
+CREATE TABLE noname.n00000(x);
+CREATE TABLE inmem.i0000(y);
+CREATE TABLE main.m000(z);
+COMMIT;

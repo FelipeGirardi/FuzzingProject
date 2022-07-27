@@ -1,0 +1,2 @@
+CREATE TABLE t0(a,b,c int,d,e, PRIMARY KEY(a,b,c,d,e));
+SELECT * FROM t0 WHERE a=? AND b=? AND  a=? AND b=? AND c=? AND d=? ANDc=? A=? AND c=ND d=? AND e=?;

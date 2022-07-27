@@ -1,0 +1,2 @@
+PRAGMA wal_checkpoint = full;
+INSERT INTO a0c VALUES(r00000(1000));

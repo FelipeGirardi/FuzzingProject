@@ -1,0 +1,49 @@
+.open --hexdb
+| size 12288 pagesize 4096 filename altertable009.txt.db
+| page 1 offset 0
+|      0: 53 51 4c 69 74 65 20 66 6f 72 6d 61 74 20 33 00   SQLite format 3.
+|     16: 10 00 01 01 00 40 20 20 00 00 00 00 00 00 00 03   .....@  ........
+|     32: 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 04   ................
+|     48: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00   ................
+|     96: 00 00 00 00 0d 00 00 00 03 0e ed 00 0f d8 0f 99   ................
+|    112: 0e ed 00 00 00 00 00 00 00 00 00 00 00 00 00 00   ................
+|   3808: 00 00 00 00 00 00 00 00 00 00 00 00 00 81 29 03   ..............).
+|   3824: 07 1b 17 11 08 82 35 74 72 69 67 67 65 72 41 46   ......5triggerAF
+|   3840: 54 45 52 74 31 43 52 45 41 54 45 20 54 52 49 47   TERt1CREATE TRIG
+|   3856: 47 45 52 20 41 46 54 45 52 20 49 4e 53 45 52 54   GER AFTER INSERT
+|   3872: 20 4f 4e 20 74 31 20 42 45 47 49 4e 0a 20 20 49    ON t1 BEGIN.  I
+|   3888: 4e 53 45 52 54 20 49 4e 54 4f 20 6c 6f 67 28 61   NSERT INTO log(a
+|   3904: 2c 62 2c 63 29 20 56 41 4c 55 45 53 28 6e 65 77   ,b,c) VALUES(new
+|   3920: 2e 61 2c 6e 65 77 2e 62 2c 6e 65 77 2e 63 29 0a   .a,new.b,new.c).
+|   3936: 20 20 4f 4e 20 43 4f 4e 46 4c 49 43 54 28 61 29     ON CONFLICT(a)
+|   3952: 20 44 4f 20 55 50 44 41 54 45 20 53 45 54 20 63    DO UPDATE SET c
+|   3968: 3d 65 78 63 6c 75 64 65 64 2e 63 2c 20 62 3d 6e   =excluded.c, b=n
+|   3984: 65 77 2e 62 3b 0a 45 4e 44 3d 02 06 17 13 13 01   ew.b;.END=......
+|   4000: 63 74 61 62 6c 65 6c 6f 67 6c 6f 67 03 43 52 45   ctableloglog.CRE
+|   4016: 41 54 45 20 54 41 42 4c 45 20 6c 6f 67 28 61 20   ATE TABLE log(a 
+|   4032: 49 4e 54 45 47 45 52 20 50 52 49 4d 41 52 59 20   INTEGER PRIMARY 
+|   4048: 4b 45 59 2c 62 2c 63 29 26 01 06 17 11 11 01 39   KEY,b,c)&......9
+|   4064: 74 61 62 6c 65 74 31 74 31 02 43 52 45 41 54 45   tablet1t1.CREATE
+|   4080: 20 54 41 42 4c 45 20 74 31 28 61 2c 62 2c 63 29    TABLE t1(a,b,c)
+| page 2 offset 4096
+|      0: 0d 00 00 00 03 0f e7 00 0f f8 0f ef 0f e7 00 00   ................
+|   4064: 00 00 00 00 00 00 00 06 03 04 09 01 01 07 08 07   ................
+|   4080: 02 04 01 01 01 04 05 06 06 01 04 09 01 01 02 03   ................
+| page 3 offset 8192
+|      0: 0d 00 00 00 02 0f f0 00 0f f8 0f f0 00 00 00 00   ................
+|   4080: 06 04 04 00 01 01 05 06 06 01 04 00 01 01 07 08   ................
+| end altertable009.txt.db
+.testctrl prng_seed 1 db
+.testctrl internal_functions
+SELECT *, '|' FROM log ORDER BY a;
+ALTER TABLE log RENAME COLUMN a TO x;
+DELETE FROM t1;
+DELETE FROM log;
+ALTER TABLE t1 RENAME COLUMN a TO aa;
+ALTER TABLE t1 RENAME COLUMN b TO bb;
+ALTER TABLE t1 RENAME COLUMN c TO cc;
+ALTER TABLE log RENAME COLUMN b TO y;
+ALTER TABLE log RENAME COLUMN c TO z;
+INSERT INTO t1 VALUES(1,2,3),(4,5,6),(1,7,8);
+SELECT *, '|' FROM log ORDER BY 1;
+

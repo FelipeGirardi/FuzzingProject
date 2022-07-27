@@ -1,0 +1,3 @@
+ATTACH''AS noname;
+ATTACH':memory:' AS name.nmem.i00);
+C

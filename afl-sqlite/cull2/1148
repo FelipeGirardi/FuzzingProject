@@ -1,0 +1,3 @@
+PRAGMA synchronous =NO full;
+PRAGMA cache_size = 10;
+PRAGMA synchronous;

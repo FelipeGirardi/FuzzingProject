@@ -1,0 +1,1 @@
+SELECT strftime($::000000, 1);

@@ -1,0 +1,3 @@
+CREATE VIRTUAL TABLE x USING fts4(y,0);
+INSERT INTO x VALUES('000 bbb c00', 'bbb 000');
+SELECT * FROM x where y MATCH 'bbb NEAR/6 000';

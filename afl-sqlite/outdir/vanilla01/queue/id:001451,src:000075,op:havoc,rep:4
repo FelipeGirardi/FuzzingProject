@@ -1,0 +1,5 @@
+CREATE TABLE x0(a TEXT, b INT0000 CHECK( b>0 ));
+CREATE TABLE t0(a TEXT, b INT0000, SHECK( b>0 ));
+INSERT ŒŒŒŒŒŒŒŒŒŒŒŒŒŒŒŒŒŒŒŒŒŒ');
+INSERT INTO x0 VALUEG('0','y0');
+I instr(1,1)NSERT INTO t0 SELECT * FROM x0;

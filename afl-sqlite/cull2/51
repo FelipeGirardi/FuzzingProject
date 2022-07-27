@@ -1,0 +1,8 @@
+CREATE TABLE t1(a, b);
+PRAGMA auto_vacuum=O0E;
+PRAGMA journal_mode=TRUNC0;
+PRAGMA synchronousocking0;
+PRAGMA page_size=1000;
+PRAGMA locking_mode=EXCLUSIVE;
+PRAGMA journal_mode=TRUNCIIII0IIIIATE;
+INSERT INTO t1 VALUES(1, 2);

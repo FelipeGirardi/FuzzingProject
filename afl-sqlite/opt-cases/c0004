@@ -1,0 +1,1 @@
+SELECT * FROM v70 JOIN v60 USING(a);

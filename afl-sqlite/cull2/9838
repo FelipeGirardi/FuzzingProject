@@ -1,0 +1,5 @@
+PRAGMA synchronous=ON;EXPLAIN
+PRAGMA cache_sous=ON;EXPLAIN
+PRAGMA cache_se;EXPLAIN
+PRAGMA syON;EXPLAIN
+PRAGMA canchronous;

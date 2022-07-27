@@ -1,0 +1,29 @@
+.open --hexdb
+| size 8192 pagesize 4096 filename json002.txt.db
+| page 1 offset 0
+|      0: 53 51 4c 69 74 65 20 66 6f 72 6d 61 74 20 33 00   SQLite format 3.
+|     16: 10 00 01 01 00 40 20 20 00 00 00 00 00 00 00 02   .....@  ........
+|     32: 00 00 00 00 00 00 00 00 00 00 00 02 00 00 00 04   ................
+|     48: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00   ................
+|     96: 00 00 00 00 0d 00 00 00 01 0f dc 00 0f dc 00 00   ................
+|   4048: 00 00 00 00 00 00 00 00 00 00 00 00 22 01 06 17   ................
+|   4064: 11 11 01 31 74 61 62 6c 65 74 31 74 31 02 43 52   ...1tablet1t1.CR
+|   4080: 45 41 54 45 20 54 41 42 4c 45 20 74 31 28 78 29   EATE TABLE t1(x)
+| page 2 offset 4096
+|      0: 0d 00 00 00 00 10 00 00 00 00 00 00 00 00 00 00   ................
+| end json002.txt.db
+.testctrl prng_seed 1 db
+.testctrl internal_functions
+INSERT INTO t1(x)
+VALUES(json_array(1,2,3.45,null,'xyzzyalkjsdkflskjoijslkfjasfdasdf','aklja'));
+INSERT INTO t1(x)
+VALUES(json_object('1',2,'3.45',null,'xyzzyalkjsdkflskjoijslkfjasfdasdf','aklja'));
+INSERT INTO T1(x) VALUES(x'01020304');
+WITH RECURSIVE c(x) AS (VALUES(1) UNION ALL SELECT x+1 FROM c WHERE x<100)
+INSERT INTO t1(x) SELECT json_group_array(x) FROM c;
+WITH RECURSIVE c(x) AS (VALUES(1) UNION ALL SELECT x+1 FROM c WHERE x<100)
+INSERT INTO t1(x) SELECT json_group_object(printf('xyz-%010d-xyz',random()),x)
+FROM c;
+SELECT json(x), json_array_length(x), json_type(x), json_quote(x) FROM t1
+WHERE json_valid(x);
+

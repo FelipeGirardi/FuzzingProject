@@ -1,0 +1,3 @@
+PRAGMA encoding;EXPLAIN
+PRAGMA encodi=utf16le;EXPLAIN
+PRAGMA encoding;

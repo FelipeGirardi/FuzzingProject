@@ -1,0 +1,4 @@
+CREATE VIRTUAL TABLE ft USING fts3(oÿÿÿÿt0o);
+INSERT INTO ft VALUES('', 'foo');
+INSERT INTO ft VALUES('foo', 'foo');
+INSERT INTO ft VA ft MATCH 'foo';

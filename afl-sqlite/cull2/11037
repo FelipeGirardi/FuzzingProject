@@ -1,0 +1,2 @@
+CREATE TABLE t0(a,INT PRIMARY KEY, b, c, UNIQUE(b, c)) WITHOUT rowid+
+CRBLE t3(g, h, i, FOREIGN KEY (h, i) REFERENCES t0(b, c));

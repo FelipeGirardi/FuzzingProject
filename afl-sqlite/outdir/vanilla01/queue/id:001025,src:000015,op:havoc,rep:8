@@ -1,0 +1,11 @@
+ATTACH''AS nonamem.sqname.sqlite_master;
+SELECe;
+ATTACH':memory:' AS inmdm;
+BEGIN;
+CREATE TABLE noname.n00000(x);
+CREATE TABLE inmem.i0QUERY);
+CREAT  TABLEÿmain.m000(z);
+COMáIT;
+SELECT name FROM noname.sqlite_master;
+SELECT name FROM inmem.sqname.sqlite_master;
+SELECT name litD_master;

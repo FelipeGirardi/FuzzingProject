@@ -1,0 +1,3 @@
+++ id -u root
+++ id -g root
++ docker build -t magma/moptafl/openssl --build-arg fuzzer_name=moptafl --build-arg target_name=openssl --build-arg USER_ID=0 --build-arg GROUP_ID=0 --build-arg canaries=1 -f /home/felipe/fuzzing/magma/docker/Dockerfile /home/felipe/fuzzing/magma

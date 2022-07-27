@@ -1,0 +1,5 @@
+PRAGMA synchronous=ON;EXPLAIN
+PRAGMA cache_size;
+PRAGMA default_cachhronous=ON;EXPLAIN
+PRAGMA cache_size;EXPLAIN
+PRAGMA synchronous;

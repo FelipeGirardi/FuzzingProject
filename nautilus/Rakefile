@@ -1,0 +1,6 @@
+task default: %w[test_rake]
+
+task :test_rake do
+  ruby "test_ruby.rb"
+end
+

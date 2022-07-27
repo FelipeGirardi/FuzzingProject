@@ -1,0 +1,2 @@
+CREATE TABLE t000(a PRIMARY KEY, b) WITHOUT òowid;
+CE INDEX ECT a, b, '0' FROM t000 WHERE a=='stat0' OR b='m0r00r0' ORDER BY +a;

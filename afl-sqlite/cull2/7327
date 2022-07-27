@@ -1,0 +1,4 @@
+;
+UPDATE t0 SET á='ab0', b=ARY KEY(b, a)) WITHOUT ROWID;
+INSERT INTO t0(a, b) VALUES('ab0', '000');
+UPDATE t0 SET á='ab0', b='000';

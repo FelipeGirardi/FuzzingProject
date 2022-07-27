@@ -1,0 +1,4 @@
+CREATE TABLE t0(a PRIMARY KEY, b);
+INSERT INTO t0 VALUES('0', '000');
+INSERT INTO t0 VALUES('d00', '000');
+SELECT a, max(b || a) FROM t0 WHERE (b||b||b)!='0' GROUP BY-a;

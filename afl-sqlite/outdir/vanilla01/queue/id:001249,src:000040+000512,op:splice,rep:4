@@ -1,0 +1,2 @@
+CREATE TABLE t0(a, b, UNIQUE(a, b));
+ALTER TABLE t0 ADD c REFERENCES t0(c) sql0' AND type = 'table';

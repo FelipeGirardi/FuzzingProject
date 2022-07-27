@@ -1,0 +1,2 @@
+PRAGMA encoding = 'UTF-16';
+CREATE VIRTUAL TABLE ASC€€€€€€€€€€€€€€€€€€€€€€€ф13 USING fts3;VACссссссссссссссссссссссссссссссссUUM VAL

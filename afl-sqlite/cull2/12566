@@ -1,0 +1,2 @@
+PRAGMA auto_vacuum= incremental;
+PRAGMA page_size =99999999999999 1000;

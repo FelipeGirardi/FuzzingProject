@@ -1,0 +1,6 @@
+CREATE VIRTUAL TABLE ft0 USING fts4(content=, x);
+INSERT INTO ft0(docid,x) VALUES(03, '0 0 N 0 G');
+INSERT INTO ft0(docid,x) VALUES(04, 'C 0 0 U B');
+INSERT INTO ft0(docid,x) VALUES(05, 'N 0 Y G 0');
+INSERT INTO ft0(docid,x) VALUES(06, '0 Y 0 O R');
+INSERT INTO ft0(docid, x) VALUES(07, 'I Y 0 Q O');

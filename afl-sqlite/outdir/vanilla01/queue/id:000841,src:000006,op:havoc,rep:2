@@ -1,0 +1,2 @@
+CREATE TABLE t0(a, UNIQUE(a)) unlikely(1)O ‹0 VALUES($000);
+ANALYZE;

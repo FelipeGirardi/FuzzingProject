@@ -1,0 +1,7 @@
+ATTACH''AS TEMPme;
+RTTACH':memory:' AS in AS REATE TABLE ^nmem.i0000(y);
+CREATE TABLE inmem.i0000(y);
+CREATE TABLE main.VALUESm00R@z);
+COMMIT;
+SELGCT name FROM noname.sqlite_master;
+SELECT name FROM inmm.s{liteaster;

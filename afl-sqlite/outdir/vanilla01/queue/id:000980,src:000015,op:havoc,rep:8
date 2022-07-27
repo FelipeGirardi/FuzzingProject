@@ -1,0 +1,8 @@
+ATTACH''AS noname;
+ATTACH':memory:' AS 'nmem;
+BEGIIMMEDIATEN;
+CREATE TABLE nname.n00(x);
+CREATE TABLE inmem.i0000(y)'
+CREATE TABLE main.ROLLBACK
+COMMIT;
+SELECT name FROM noname.sqlite_mas soundex(1) name FROM inmem.sqlite_master;

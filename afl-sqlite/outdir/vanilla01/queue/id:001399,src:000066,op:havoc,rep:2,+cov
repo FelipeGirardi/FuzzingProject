@@ -1,0 +1,3 @@
+CREATE TABLE t6(c DEFAULT '000');
+PRAGMA table_info( DEFAULT '000');
+PRAGMAt0);

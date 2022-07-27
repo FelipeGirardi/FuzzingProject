@@ -1,0 +1,2 @@
+WITH t0(a) AS (SELECT * FROM t4)
+SELECT * FROM t0;

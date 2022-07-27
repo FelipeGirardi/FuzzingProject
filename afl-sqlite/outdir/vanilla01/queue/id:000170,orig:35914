@@ -1,0 +1,2 @@
+CREATE VIRTUAL TABLE t0 USING fts3tokenize;
+SELECT * FROM t0;

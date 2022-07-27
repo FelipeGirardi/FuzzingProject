@@ -1,0 +1,1 @@
+SELECT $::00s0 LIKE $::00s LIKE $::000::s0 LIKE $::00s0 LIKE $::00s LIKE $::0000003; 

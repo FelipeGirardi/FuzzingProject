@@ -1,0 +1,43 @@
+.open --hexdb
+| size 16384 pagesize 4096 filename misc002.txt.db
+| page 1 offset 0
+|      0: 53 51 4c 69 74 65 20 66 6f 72 6d 61 74 20 33 00   SQLite format 3.
+|     16: 10 00 01 01 00 40 20 20 00 00 00 00 00 00 00 04   .....@  ........
+|     32: 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 04   ................
+|     48: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00   ................
+|     96: 00 00 00 00 0d 00 00 00 03 0f 41 00 0f c7 0f 84   ..........A.....
+|    112: 0f 41 00 00 00 00 00 00 00 00 00 00 00 00 00 00   .A..............
+|   3904: 00 41 03 06 17 11 11 01 6f 74 61 62 6c 65 74 33   .A......otablet3
+|   3920: 74 33 04 43 52 45 41 54 45 20 54 41 42 4c 45 20   t3.CREATE TABLE 
+|   3936: 74 33 28 6d 20 54 45 58 54 20 50 52 49 4d 41 52   t3(m TEXT PRIMAR
+|   3952: 59 20 4b 45 59 29 20 57 49 54 48 4f 55 54 20 52   Y KEY) WITHOUT R
+|   3968: 4f 57 49 44 41 02 06 17 11 11 01 6f 74 61 62 6c   OWIDA......otabl
+|   3984: 65 74 32 74 32 03 43 52 45 41 54 45 20 54 41 42   et2t2.CREATE TAB
+|   4000: 4c 45 20 74 32 28 6d 20 54 45 58 54 20 50 52 49   LE t2(m TEXT PRI
+|   4016: 4d 41 52 59 20 4b 45 59 29 20 57 49 54 48 4f 55   MARY KEY) WITHOU
+|   4032: 54 20 52 4f 57 49 44 37 01 06 17 15 15 01 53 74   T ROWID7......St
+|   4048: 61 62 6c 65 64 75 61 6c 64 75 61 6c 02 43 52 45   abledualdual.CRE
+|   4064: 41 54 45 20 54 41 42 4c 45 20 64 75 61 6c 28 64   ATE TABLE dual(d
+|   4080: 75 6d 6d 79 20 76 61 72 63 68 61 72 28 31 29 29   ummy varchar(1))
+| page 2 offset 4096
+|      0: 0d 00 00 00 01 0f fb 00 0f fb 00 00 00 00 00 00   ................
+|   4080: 00 00 00 00 00 00 00 00 00 00 00 03 01 02 0f 58   ...............X
+| page 3 offset 8192
+|      0: 0a 00 00 00 00 10 00 00 00 00 00 00 00 00 00 00   ................
+| page 4 offset 12288
+|      0: 0a 00 00 00 00 10 00 00 00 00 00 00 00 00 00 00   ................
+| end misc002.txt.db
+.testctrl prng_seed 1 db
+.testctrl internal_functions
+CREATE TABLE t1(x TEXT COLLATE binary DEFAULT current_timestamp,
+y TEXT COLLATE nocase DEFAULT ('xyz'),PRIMARY KEY(x,y));
+CREATE INDEX t1y ON t1(y) WHERE y IS NOT NULL;
+INSERT INTO t1 DEFAULT VALUES;
+REPLACE INTO t1(x,y)
+SELECT compile_options, name 
+FROM pragma_compile_options, pragma_collation_list;
+SELECT DISTINCT * FROM t1;
+REPLACE INTO t2(m)SELECT y FROM t1 WHERE x GLOB 'ENA*';
+REPLACE INTO t3(m)SELECT x FROM t1 WHERE y LIKE 'RT%' ESCAPE '\';
+SELECT * FROM t2,t3;
+

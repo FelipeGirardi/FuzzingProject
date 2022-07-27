@@ -1,0 +1,1 @@
+CREATE VIRTUAL TABLE t0 USING fts4(Compress=z0p, uncompress= a,b0);

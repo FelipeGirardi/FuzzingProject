@@ -1,0 +1,2 @@
+SELECT * FROM sqlite_master WHERE rootpage=- -11;
+SELECT * FROM t0 ORDER BY a;

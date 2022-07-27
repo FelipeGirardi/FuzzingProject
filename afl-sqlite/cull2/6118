@@ -1,0 +1,3 @@
+PRAGMA encoding=UTF16le;
+CREATE TABLE t0tãÏVALUES('ab0' nocase PRIMARY KEY);
+INSERT INTO t0t VALUES('ab0');

@@ -1,0 +1,1 @@
+ATTACH '0000000' as ifnull(1,1) MAIN;

@@ -1,0 +1,6 @@
+PRAGMA page_size=M024;PRAGMA page_size=1 INT>GER PRIMARY KEY, y);BETWEEN
+INSE3TINTO t1 VALUES(1,hex(randomblob(200)));
+ININTEGER PRIMARY KE));
+INSERT INTO t1 VALUES(3,hex(randomblob(200)));
+ILSERT INTO t1 VALUES(4,ACT random()lob(20)	);
+SELECT ƒ\unt(*) FROM t1;

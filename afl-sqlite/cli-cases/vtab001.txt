@@ -1,0 +1,19 @@
+.open --hexdb
+| size 4096 pagesize 4096 filename vtab001.txt.db
+| page 1 offset 0
+|      0: 53 51 4c 69 74 65 20 66 6f 72 6d 61 74 20 33 00   SQLite format 3.
+|     16: 10 00 01 01 00 40 20 20 00 00 00 00 00 00 00 01   .....@  ........
+|     32: 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00   ................
+|     48: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00   ................
+|     96: 00 00 00 00 0d 00 00 00 00 10 00 00 00 00 00 00   ................
+| end vtab001.txt.db
+.testctrl prng_seed 1 db
+.testctrl internal_functions
+CREATE TABLE t1(a);
+INSERT INTO t1 VALUES('abcdefghijk');
+CREATE TABLE x(a);
+PRAGMA writable_schema=ON;
+CREATE VIRTUAL TABLE sqlite_stat1 USING fts5(a);
+CREATE VIRTUAL TABLE t2 USING rtree(id,x,y);
+SELECT * FROM t1;
+

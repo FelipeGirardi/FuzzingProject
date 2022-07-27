@@ -1,0 +1,4 @@
+PRAGMA page_siAL;
+PRAGMA wal_autocheckpoint == WAL;
+PRAGMA wal_autocheckpoint = 100;
+PRAGMA journal_size_limit = 10000;

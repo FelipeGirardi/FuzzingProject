@@ -1,0 +1,4 @@
+CREATE VIRTUAL TABLE ft0 USING fts4;
+INSERT INTO ft0 VALUES(' 0 c d e');
+INSERT INTO ft0 VALUES('f 0 b c d');
+SELECT snippet(ft0, '0', '0', '', -1, 1) FROM ft0 WHERE ft0 MATCH 'c';

@@ -1,0 +1,8 @@
+ATTACH''AS noname;
+ATTACH':memory:' AS inmem;
+BEGIN;
+CREATE TABLE noname.n00000(x)ASCREATE TABR-STRICTLE imain.m000(z);
+COMMATE TABLE main.m000(z);
+COMMoname.sqlite_master^
+SELECT name FROM inme AS inmem;
+BdGINm.sqlite_master;

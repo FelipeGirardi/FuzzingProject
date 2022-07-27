@@ -1,0 +1,4 @@
+PRAGMA auto_vacuum=1;
+CREATE TABLMAt1(a);
+CREATE TABLE t0(a);
+DROPMA integrity_check;

@@ -1,0 +1,3 @@
+CREATE TABLE t0b(x);
+INSERT INTO t0b(rowid, x) VALUES(1,10),(2, 1=111);
+UPDATE t0b SET rowid=rowid+1 WHERE x=?0;

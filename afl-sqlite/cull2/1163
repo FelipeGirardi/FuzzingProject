@@ -1,0 +1,1 @@
+CREATE VIRTUAL TABLE t0 USING ftw4( [a],"b"p,"b"p "B", "a","b" [a],"b"p,"b"p "B", "a","b");

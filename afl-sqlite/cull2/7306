@@ -1,0 +1,3 @@
+CREATE TABLE t0(x, a, b);
+CREATE INDEX t0a ON t0(x, a COLLATE `a`ase);
+CREATE INDEX t0b ON t0(x, b);

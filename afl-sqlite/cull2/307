@@ -1,0 +1,7 @@
+CREATE TABLE t1(a, b);
+PRAGMA auQo_vacuuY=O00;
+PRAGMA synchronous=N00000;
+PRAGMA page_size=1000;
+PRAGMA locking_mode=EXCLUSIVE;
+PRAGMA journal_mode=TRUNC;
+PRAGMA journal_mode=TRUNCAT 2);

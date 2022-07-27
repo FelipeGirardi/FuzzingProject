@@ -1,0 +1,31 @@
+.open --hexdb
+| size 8192 pagesize 4096 filename gencol013.txt.db
+| page 1 offset 0
+|      0: 53 51 4c 69 74 65 20 66 6f 72 6d 61 74 20 33 00   SQLite format 3.
+|     16: 10 00 01 01 00 40 20 20 00 00 00 00 00 00 00 02   .....@  ........
+|     32: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 04   ................
+|     48: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00   ................
+|     96: 00 00 00 00 0d 00 00 00 01 0f dc 00 0f dc 00 00   ................
+|   4048: 00 00 00 00 00 00 00 00 00 00 00 00 22 01 06 17   ................
+|   4064: 11 11 01 31 74 61 62 6c 65 74 30 74 30 02 43 52   ...1tablet0t0.CR
+|   4080: 45 41 54 45 20 54 41 42 4c 45 20 74 30 28 78 29   EATE TABLE t0(x)
+| page 2 offset 4096
+|      0: 0d 00 00 00 00 10 00 00 00 00 00 00 00 00 00 00   ................
+| end gencol013.txt.db
+.testctrl prng_seed 1 db
+.testctrl internal_functions
+CREATE TABLE t1(a, b, c GENERATED ALWAYS AS (a+17-b) VIRTUAL);
+INSERT INTO t1 VALUES(1,2),(4,8),(16,32);
+CREATE TABLE t2(a, b GENERATED ALWAYS AS (a-c) VIRTUAL, c);
+INSERT INTO t2 VALUES(50,60);
+CREATE TABLE t3(a, b AS (a*2), c AS (b*2), d AS (c*2), e AS (d*2));
+INSERT INTO t3 VALUES(1),(2),(3);
+UPDATE t1 SET b=64 WHERE c=1;
+SELECT *, '|' FROM t1 ORDER BY c;
+CREATE INDEX t1c ON t1(c);
+SELECT a FROM t1 WHERE c=16;
+INSERT INTO t2(a,b) VALUES(5,6);
+ALTER TABLE t2 ADD COLUMN d GENERATED ALWAYS AS (a*c) STORED;
+SELECT * FROM t3;
+SELECT * FROM t2;
+

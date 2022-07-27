@@ -1,0 +1,5 @@
+CREATE VIEW v0 AS
+SELECT a, b FROM t0
+UNION
+SELECT b AS '0', a AS '0' FROM t0
+ORDER BY x, y;

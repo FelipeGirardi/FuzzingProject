@@ -1,0 +1,16 @@
+CREATE VIRTUAL TABLE t0 USING fts4( [a]," replace(1,1,1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"p "a","b");

@@ -1,0 +1,38 @@
+.open --hexdb
+| size 8192 pagesize 4096 filename zeroblob001.txt.db
+| page 1 offset 0
+|      0: 53 51 4c 69 74 65 20 66 6f 72 6d 61 74 20 33 00   SQLite format 3.
+|     16: 10 00 01 01 00 40 20 20 00 00 00 00 00 00 00 02   .....@  ........
+|     32: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 04   ................
+|     48: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00   ................
+|     96: 00 00 00 00 0d 00 00 00 01 0f b3 00 0f b3 00 00   ................
+|   4016: 00 00 00 4b 01 07 17 11 11 01 81 01 74 61 62 6c   ...K........tabl
+|   4032: 65 74 31 74 31 02 43 52 45 41 54 45 20 54 41 42   et1t1.CREATE TAB
+|   4048: 4c 45 20 74 31 28 69 64 20 49 4e 54 45 47 45 52   LE t1(id INTEGER
+|   4064: 20 50 52 49 4d 41 52 59 20 4b 45 59 2c 61 2c 62    PRIMARY KEY,a,b
+|   4080: 2c 63 29 57 49 54 48 4f 55 54 20 52 4f 57 49 44   ,c)WITHOUT ROWID
+| page 2 offset 4096
+|      0: 0a 00 00 00 00 10 00 00 00 00 00 00 00 00 00 00   ................
+| end zeroblob001.txt.db
+.testctrl prng_seed 1 db
+.testctrl internal_functions
+WITH RECURSIVE c(x) AS (VALUES(1) UNION ALL SELECT x+1 FROM c WHERE x<10)
+INSERT INTO t1(id,a,b,c)
+SELECT x, x+1000, x+2000, zeroblob(10000) FROM c;
+SELECT sum(id), sum(a), sum(b), sum(length(c)), group_concat(DISTINCT typeof(c))
+FROM t1;
+SELECT c,a,b FROM t1 WHERE id=5;
+SELECT typeof(CAST(zeroblob(4)||x'03' AS blob)),
+quote(CAST(zeroblob(4)||x'03' AS blob)),
+CAST(zeroblob(4)||x'03' AS blob),
+zeroblob(4)||x'03';
+UPDATE t1 SET c=CAST(zeroblob(9999)||x'02' AS blob) WHERE id=2;
+UPDATE t1 SET b=9000, c=CAST(zeroblob(9998)||x'0304' AS blob) WHERE id=8;
+SELECT id, quote(substr(c,-3)), c, '|' FROM t1
+WHERE substr(c,-1)!=x'00'
+ORDER BY id;
+UPDATE t1 SET c=zeroblob(10000) WHERE id=2;
+SELECT id, quote(substr(c,-3)) FROM t1
+WHERE substr(c,-1)!=x'00'
+ORDER BY id;
+

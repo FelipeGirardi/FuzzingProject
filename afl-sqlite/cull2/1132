@@ -1,0 +1,2 @@
+CREATE TEMP TABLE t0001(a,b,c);
+SELECT * FROM sqlite_temp_master WHERE sql GLOB '*[2001-01-01E000';

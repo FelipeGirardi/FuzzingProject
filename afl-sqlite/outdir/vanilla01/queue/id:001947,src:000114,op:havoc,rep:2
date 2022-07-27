@@ -1,0 +1,4 @@
+PRAGMA auto_vacuum=1;
+CREATE TABLE t1(a);
+CREATõõõõõõõõõõõõõõõõõõõõõõõLE t1;
+PRAGMA integrvty_check;

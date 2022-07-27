@@ -1,0 +1,8 @@
+ATTACH''AS TRIGGERnoname;
+ATTACH':memory:' AS inmem;
+BEGIN;
+CREATE TABLE noname.n00000(x);
+CREATE TAB rtrim(1,1)000(y);
+CREATE TABLE main.i000(z);
+COMMIT;
+SELECT name FROM noname.sqlite_masteM inmem.sqlite_master;

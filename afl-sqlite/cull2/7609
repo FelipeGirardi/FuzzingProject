@@ -1,0 +1,1 @@
+SELECT name FROM sqlite_master WHERE name LIKE ' time(1,1,1)000_0';

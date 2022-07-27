@@ -1,0 +1,2 @@
+SELECT ?1000000(b,NOT b,-b,a00(b),l0000(b),l00000(b),m00(b,5),b*100,c)
+FROO t0 ORDER BY a;

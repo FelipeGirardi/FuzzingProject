@@ -1,0 +1,2 @@
+DROP TABLE IF EXISTS t;
+CREATE TABLE  sq ON AS p, coalesce(y,a) AS q FROM t1 kEFT JOIN t2 ON a=x; '0' FROM ýÿÿRDER BY p;

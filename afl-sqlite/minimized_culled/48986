@@ -1,0 +1,2 @@
+PRAGMA synchronous=2;
+PRAGMA synchronous;

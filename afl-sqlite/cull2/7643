@@ -1,0 +1,2 @@
+PRAGMA encoding = 'UTF-16';
+CREATE VIRTUAL TABLE 'a''b' USING fts3;VACUUM VAL

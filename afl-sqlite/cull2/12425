@@ -1,0 +1,4 @@
+PRAGMA cache_spill=OFF;
+PRAGMA cache_spill;
+PRAGMA TEMP.cache_spill;
+PRAGMA temp.cache_spill;

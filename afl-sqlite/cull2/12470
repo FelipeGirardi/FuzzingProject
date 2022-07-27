@@ -1,0 +1,2 @@
+WITH i(x) AS ( VALUES(1) UNION ALL SELECT x+ strftime(1,oid,1) -11 FROM i GROUP BY 1)
+SELECT x FROM i LIMIT 10;

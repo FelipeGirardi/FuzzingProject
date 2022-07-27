@@ -1,0 +1,1 @@
+CREATE TABLE t0000(a text primary key, b00000, primary key(a,b));

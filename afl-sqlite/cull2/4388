@@ -1,0 +1,6 @@
+ATTACH''AS noname;
+ATTACH':memory:' AS inm;
+ATTACH':memory:' AS ie;
+ATTACH':memory:' AS oname;
+ANALYZE:memory:'
+B

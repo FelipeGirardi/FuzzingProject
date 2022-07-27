@@ -1,0 +1,2 @@
+CREATE TABLE t0(c  `a`ULT '000');
+PRAGMAUNIONe_info(t0);

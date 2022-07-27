@@ -1,0 +1,28 @@
+.open --hexdb
+| size 8192 pagesize 4096 filename select003.txt.db
+| page 1 offset 0
+|      0: 53 51 4c 69 74 65 20 66 6f 72 6d 61 74 20 33 00   SQLite format 3.
+|     16: 10 00 01 01 00 40 20 20 00 00 00 00 00 00 00 02   .....@  ........
+|     32: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 04   ................
+|     48: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00   ................
+|     96: 00 00 00 00 0d 00 00 00 01 0f d8 00 0f d8 00 00   ................
+|   4048: 00 00 00 00 00 00 00 00 26 01 06 17 11 11 01 39   ........&......9
+|   4064: 74 61 62 6c 65 74 31 74 31 02 43 52 45 41 54 45   tablet1t1.CREATE
+|   4080: 20 54 41 42 4c 45 20 74 31 28 61 2c 62 2c 63 29    TABLE t1(a,b,c)
+| page 2 offset 4096
+|      0: 0d 00 00 00 00 10 00 00 00 00 00 00 00 00 00 00   ................
+| end select003.txt.db
+.testctrl prng_seed 1 db
+.testctrl internal_functions
+DROP TABLE IF EXISTS t1;
+DROP TABLE IF EXISTS t2;
+DROP TABLE IF EXISTS t3;
+CREATE TABLE t1(x INTEGER PRIMARY KEY, y, z);
+INSERT INTO t1(x,y,z) VALUES(1,2,3),(2,98,99);
+CREATE TABLE t2(a);
+INSERT INTO t2(a) VALUES('xyzzy');
+CREATE VIEW t3 AS SELECT substr('01234',1,2) AS m FROM t2;
+SELECT t1.*, t3.m
+  FROM t1 JOIN t3 ON t1.x=t3.m
+ WHERE t1.x IN t3;
+

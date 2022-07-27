@@ -1,0 +1,2 @@
+CREATE TABLE t0(j DEFAU);
+PRAGMA table_info(t0);

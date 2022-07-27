@@ -1,0 +1,5 @@
+CREATE TABLE t12a(a,b,c,d,e,f,g);
+INSERT INTO t12a VALUES(100,2,3,4,5,6,7);
+CREATE TABLE t12b(x a,b);
+INSERT INTO t12b(x,rowid,x,x,x,x,x) SELECT * FROM t12a;
+SELECT rowid, x FROM t12b;

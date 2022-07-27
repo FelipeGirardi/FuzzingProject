@@ -1,0 +1,69 @@
+.open --hexdb
+| size 16384 pagesize 4096 filename expr002.txt.db
+| page 1 offset 0
+|      0: 53 51 4c 69 74 65 20 66 6f 72 6d 61 74 20 33 00   SQLite format 3.
+|     16: 10 00 01 01 00 40 20 20 00 00 00 00 00 00 00 04   .....@  ........
+|     32: 00 00 00 00 00 00 00 00 00 00 00 02 00 00 00 04   ................
+|     48: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00   ................
+|     96: 00 00 00 00 0d 00 00 00 03 0e 94 00 0f 86 0f 34   ...............4
+|    112: 0e 94 00 00 00 00 00 00 00 00 00 00 00 00 00 00   ................
+|   3728: 00 00 00 00 81 1d 03 07 17 19 19 01 82 15 74 61   ..............ta
+|   3744: 62 6c 65 61 6c 62 75 6d 73 61 6c 62 75 6d 73 04   blealbumsalbums.
+|   3760: 43 52 45 41 54 45 20 54 41 42 4c 45 20 61 6c 62   CREATE TABLE alb
+|   3776: 75 6d 73 20 28 0a 20 20 69 64 20 69 6e 74 65 67   ums (.  id integ
+|   3792: 65 72 20 4e 4f 54 20 4e 55 4c 4c 20 50 52 49 4d   er NOT NULL PRIM
+|   3808: 41 52 59 20 4b 45 59 20 41 55 54 4f 49 4e 43 52   ARY KEY AUTOINCR
+|   3824: 45 4d 45 4e 54 2c 0a 20 20 6e 61 6d 65 20 76 61   EMENT,.  name va
+|   3840: 72 63 68 61 72 28 32 35 35 29 2c 0a 20 20 61 72   rchar(255),.  ar
+|   3856: 74 69 73 74 5f 69 64 20 69 6e 74 65 67 65 72 20   tist_id integer 
+|   3872: 52 45 46 45 52 45 4e 43 45 53 20 61 72 74 69 73   REFERENCES artis
+|   3888: 74 73 0a 29 50 02 06 17 2b 2b 01 59 74 61 62 6c   ts.)P...++.Ytabl
+|   3904: 65 73 71 6c 69 74 65 5f 73 65 71 75 65 6e 63 65   esqlite_sequence
+|   3920: 73 71 6c 69 74 65 5f 73 65 71 75 65 6e 63 65 03   sqlite_sequence.
+|   3936: 43 52 45 41 54 45 20 54 41 42 4c 45 20 73 71 6c   CREATE TABLE sql
+|   3952: 69 74 65 5f 73 65 71 75 65 6e 63 65 28 6e 61 6d   ite_sequence(nam
+|   3968: 65 2c 73 65 71 29 78 01 07 17 1b 1b 01 81 47 74   e,seq)x.......Gt
+|   3984: 61 62 6c 65 61 72 74 69 73 74 73 61 72 74 69 73   ableartistsartis
+|   4000: 74 73 02 43 52 45 41 54 45 20 54 41 42 4c 45 20   ts.CREATE TABLE 
+|   4016: 61 72 74 69 73 74 73 20 28 0a 20 20 69 64 20 69   artists (.  id i
+|   4032: 6e 74 65 67 65 72 20 4e 4f 54 20 4e 55 4c 4c 20   nteger NOT NULL 
+|   4048: 50 52 49 4d 41 52 59 20 4b 45 59 20 41 55 54 4f   PRIMARY KEY AUTO
+|   4064: 49 4e 43 52 45 4d 45 4e 54 2c 0a 20 20 6e 61 6d   INCREMENT,.  nam
+|   4080: 65 20 76 61 72 63 68 61 72 28 32 35 35 29 0a 29   e varchar(255).)
+| page 2 offset 4096
+|      0: 0d 00 00 00 01 0f f9 00 0f f9 00 00 00 00 00 00   ................
+|   4080: 00 00 00 00 00 00 00 00 00 05 01 03 00 11 41 72   ..............Ar
+| page 3 offset 8192
+|      0: 0d 00 00 00 02 0f e9 00 0f f4 0f e9 00 00 00 00   ................
+|   4064: 00 00 00 00 00 00 00 00 00 09 02 03 19 09 61 6c   ..............al
+|   4080: 62 75 6d 73 0a 01 03 1b 09 61 72 74 69 73 74 73   bums.....artists
+| page 4 offset 12288
+|      0: 0d 00 00 00 01 0f f8 00 0f f8 00 00 00 00 00 00   ................
+|   4080: 00 00 00 00 00 00 00 00 06 01 04 00 11 09 41 6c   ..............Al
+| end expr002.txt.db
+.testctrl prng_seed 1 db
+.testctrl internal_functions
+SELECT artists.*
+FROM artists
+INNER JOIN artists AS 'b' ON (b.id = artists.id)
+WHERE (artists.id IN (
+SELECT albums.artist_id
+FROM albums
+WHERE ((name = 'Al')
+AND (albums.artist_id IS NOT NULL)
+AND (albums.id IN (
+SELECT id
+FROM (
+SELECT albums.id,
+row_number() OVER (
+PARTITION BY albums.artist_id
+ORDER BY name
+) AS 'x'
+FROM albums
+WHERE (name = 'Al')
+) AS 't1'
+WHERE (x = 1)
+))
+AND (albums.id IN (1, 2)))
+));
+

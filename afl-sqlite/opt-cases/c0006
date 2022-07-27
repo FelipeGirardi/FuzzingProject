@@ -1,0 +1,1 @@
+SELECT * FROM v23, v13 WHERE v13.b=v23.b;

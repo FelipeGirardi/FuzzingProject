@@ -1,0 +1,2 @@
+CREATE TABLE t00b AS SELECT 4 AS '', 5 AS _______AS '';
+SELECT * FROM t01b;

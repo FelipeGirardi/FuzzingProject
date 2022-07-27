@@ -1,0 +1,1 @@
+SELECT * FROM t0 WHERE w IN (3,-1,1,2) order by 1;

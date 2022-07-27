@@ -1,0 +1,9 @@
+CREATE TABLE t0(a, b);
+CREATE INDEX i0 ON t0(a);
+CREATE INDEX i2 ON t0(a,b);
+CREATE INDEX i3 ON t0(b,b);
+INSERT INTO t0 VALUES(randomblob(20),randomblob(20));
+INSERT INTO t0 SELECT randomblob(20), randomblob(20) FROM t0;
+INSERT INTO t0 SELECT randomblob(20), randomblob(20) FROM t0;
+INSERT INTO t0 SELECT randomblob(20), randomblob(25) FROM t0;
+ANALYZE;

@@ -1,0 +1,2 @@
+SELECT strftime( unlikely(1));
+SELECT strftime( unlikely(1));

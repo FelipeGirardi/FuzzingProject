@@ -1,0 +1,1 @@
+SELECT replace(' blob00a0a','a','00000');

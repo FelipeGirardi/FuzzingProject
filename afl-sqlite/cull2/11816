@@ -1,0 +1,6 @@
+CREATE VIRTUAL TABLE ft0 USING fts4(x, y);
+INSERT INTO ft0 VALUES('a 0', 'c d');
+INSERT INTO ft0 VALUES('e','c d');
+INSERT INTO ft0 VALUES('a a', '0 0');
+CREATE VIRTUAL TABLE temp.aux0 USING fts4aux(main, ft0);
+SELECT* FROM aux0;

@@ -1,0 +1,2 @@
+CREATE TABLE t0e03(a INTEGER PRIMARY KEY, b, UNIQUE(a,b)) WITHOUT rowid+0e03 set b = 200 where a = 100;
+SELECT* FROM t0e03, t0e00;

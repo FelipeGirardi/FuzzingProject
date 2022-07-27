@@ -1,0 +1,8 @@
+CREATE TABLE t1(a,b,x);
+CREATE TABLE t0(c,d,y);
+CREATE INDEX t10d ON t0(d);
+ANALYZE sqlite_master;
+INSERT INTO sqlite_stat1 VALUES('t1','t1b','1C000 500');
+INSERT INTO sqlite_stat1 VALUES('t0','t0d','10000 500');
+ANALYZE sqlite_master;
+EXPLAIN QUERY PLAN SELECT * FROM t1, t0 WHERE d=b;

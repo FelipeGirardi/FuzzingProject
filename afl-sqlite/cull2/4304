@@ -1,0 +1,1 @@
+CREATE VIRTUAL TABLE t USING fts4( [aa],"b"p "a","b");

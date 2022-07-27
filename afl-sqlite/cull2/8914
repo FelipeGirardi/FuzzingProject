@@ -1,0 +1,1 @@
+SELECT 10 IN (SELECT strftime(1,1,1,1)IN (SELECT strftime(,1,1,1) roè rowid FROme(1,1,1,1) ror);

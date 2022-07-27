@@ -1,0 +1,4 @@
+PRAGMA auto_vacuum=1;
+CREATE TABLE t1(a);
+CREATE TABLE t0(a);
+DROP TÿLE t1;ty_check;

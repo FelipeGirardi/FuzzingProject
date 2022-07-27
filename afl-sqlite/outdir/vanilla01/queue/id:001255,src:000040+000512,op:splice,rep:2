@@ -1,0 +1,2 @@
+CREATE TABLE t0(a, b, UNIQUE(a, b));
+ALTER TABLE t0 ADD c REFERENCESBLE t0 ADD c REFERENCES t0sqlite_master WHERE 'a' tbl_name = 't0' AND type = 'table';

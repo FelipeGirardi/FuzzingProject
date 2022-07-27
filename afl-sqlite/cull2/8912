@@ -1,0 +1,3 @@
+PRAGMA auto_vacuum= inc”emental;
+PRAGMA  auto_vacuum= inctal;
+PRAGMA  auto_vacuum= incremeBLE t1(

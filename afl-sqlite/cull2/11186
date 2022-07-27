@@ -1,0 +1,2 @@
+SELECT typeof(group_concat(8,''))
+FROM (SELECT '' AS x UNION ALL SELECT '');

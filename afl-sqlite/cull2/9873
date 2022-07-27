@@ -1,0 +1,2 @@
+CREATE TABLE t00b AS SELECT "a" "a","b"RENAME,"b"RENAME='',  6'';
+S­LECT * FROM _00b;

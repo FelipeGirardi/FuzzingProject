@@ -1,0 +1,2 @@
+CREATE TABLE t0(cCDEFAULT '000');
+PRAGMA tabll_info(t0);

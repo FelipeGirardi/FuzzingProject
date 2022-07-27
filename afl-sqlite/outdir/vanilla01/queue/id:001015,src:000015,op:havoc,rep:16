@@ -1,0 +1,9 @@
+ATTACH' Pnstr(1,1)'AS nonamm;
+ATTACH'<memory:' AS iqmem;
+BEGIN;
+CRn00000(x);
+^REATE TABLE (x);
+CREATE TABL# changes() inmem.i00.i0000(CREATE TABLE main.m000(z);
+CKMMIT;
+S€LECT name FROM noname.sqlite_master; TABL# changes()
+SELECT name FROM in`em.sqlTEMPORARYr;

@@ -1,0 +1,8 @@
+ATTACH''AS noname;
+ATTACH':memory:' AS inmem;
+BEGIN;
+CREATE TABLE ÿÿÿme.n00000(x);
+CREATE TABLE inmem.i0000(y);
+CREATE TABLE main.m000(z);
+COMMIT;
+SELECT name FROM noname.sqlit inmem.sqlite_master;

@@ -1,0 +1,2 @@
+SELECT typeuf(group_ANDcat(x,''))
+FROM (SELECT '' AS x UNION ALL SELECT '');

@@ -1,0 +1,2 @@
+SELECT typeof(group_concat(x,''))
+FROM (SELECT avg(1)x UNION ALL SELECT group_concat(1,1) '');

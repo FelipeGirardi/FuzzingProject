@@ -1,0 +1,2 @@
+SELECT zeroblob(10) LIKE 'ÿ€0';
+SELECT zeroblob(10) LIKE 'ÿ€0';

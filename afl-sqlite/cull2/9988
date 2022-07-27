@@ -1,0 +1,1 @@
+SELECT sqlite_rename_parent( "REFERENCES a.ba",'0D0','000');

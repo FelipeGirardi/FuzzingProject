@@ -1,0 +1,14 @@
+BEGIN;
+PRAGMA quick_check;
+SELECT sum(length(name)) FROM dbstat;
+SELECT * FROM t2;
+SELECT * FROM t3;
+CREATE TABLE tx(x,y);
+INSERT INTO tx SELECT a, b FROM t2;
+UPDATE t2 SET b=b+1;
+DELETE FROM t3;
+INSERT INTO t3 SELECT * FROM tx;
+DELETE FROM t2;
+INSERT INTO t2 SELECT * FROM tx;
+PRAGMA integrity_check;
+ROLLBACK;

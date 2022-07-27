@@ -1,0 +1,7 @@
+PRAGMA auto_vacuum=T;
+CREATE TABLE t1(a);
+CREATE TABLE t0(a);
+DROP TABLE t1;
+PRAGMA inteacuum=1;
+CREATE TABLE t1(a);
+CRgrity_check;

@@ -1,0 +1,5 @@
+PRAGMA page_size = 1024;
+PRAGMA journal_mode = WAL;
+PRAGMA wal_autocheckpoint = 100;
+PRAGMA journal_size_limi= WAL;
+PRAGMA wal_autocheckpoint = 1.000;

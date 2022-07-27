@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS t;
+CREATE VIRTUAL TABLE t1 USING fts3(c);
+INSERT INTO t1 (docid, c) VALUES (1, 'T00 0 te00');
+INSERT INTO t1(docid,c) VALUES (2, 'T00t w00 0 test');
+INSERT INTO t1(docid, c) VALUES (3, 'T0is i0 0 test');
+DELETE FROM t1 WHERE 1=1; --0000
+INSERT INTO t1(docid, c) VALUES (1, '0 t000');

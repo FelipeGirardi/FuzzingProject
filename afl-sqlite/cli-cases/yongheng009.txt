@@ -1,0 +1,20 @@
+.open --hexdb
+| size 8192 pagesize 4096 filename yongheng009.txt.db
+| page 1 offset 0
+|      0: 53 51 4c 69 74 65 20 66 6f 72 6d 61 74 20 33 00   SQLite format 3.
+|     16: 10 00 01 01 00 40 20 20 00 00 00 00 00 00 00 02   .....@  ........
+|     32: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 04   ................
+|     48: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00   ................
+|     96: 00 00 00 00 0d 00 00 00 01 0f d4 00 0f d4 00 00   ................
+|   4048: 00 00 00 00 2a 01 06 17 11 11 01 41 74 61 62 6c   ....*......Atabl
+|   4064: 65 74 31 74 31 02 43 52 45 41 54 45 20 54 41 42   et1t1.CREATE TAB
+|   4080: 4c 45 20 74 31 28 61 20 54 45 58 54 2c 20 62 29   LE t1(a TEXT, b)
+| page 2 offset 4096
+|      0: 0d 00 00 00 01 0f f8 00 0f f8 00 00 00 00 00 00   ................
+|   4080: 00 00 00 00 00 00 00 00 06 01 03 11 01 31 30 0a   .............10.
+| end yongheng009.txt.db
+.testctrl prng_seed 1 db
+.testctrl internal_functions
+DROP TABLE IF EXISTS t2;CREATE VIRTUAL TABLE t2 USING rtree(c, d, e);
+SELECT * FROM t1 LEFT JOIN t2 ON e=3 OR c=1 WHERE e=c AND c=10 GROUP BY 3;
+

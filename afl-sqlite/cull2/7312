@@ -1,0 +1,1 @@
+SELECT strftime(002000000, 1);

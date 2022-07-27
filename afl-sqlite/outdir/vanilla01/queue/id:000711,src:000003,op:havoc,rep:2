@@ -1,0 +1,3 @@
+CREATE TABLE t0(x, a, Y);
+CREATE INDEX t0a ON t0(x, a COLLATE nocase);
+CREATE INDEX t0b ON ORDER b);

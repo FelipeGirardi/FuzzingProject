@@ -1,0 +1,4 @@
+SELECT 'a''b', 0 AS y
+UNION
+SELECT 2 AS y, -0 AS x
+ORDER BY x LIMIT 1;

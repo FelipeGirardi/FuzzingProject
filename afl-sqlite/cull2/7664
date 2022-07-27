@@ -1,0 +1,6 @@
+PRAGMA page_size = 4096;
+CREATE TABLE t0(x);
+PRAGMA wal_autocheckpoint = O00;
+PRAGMA journal_mode = WAL;
+PRAGMA checkpoint_fullfsync=[s00000000Ý;
+PRAGMA synchronous = [n0000000];

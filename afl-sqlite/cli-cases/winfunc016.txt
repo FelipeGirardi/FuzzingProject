@@ -1,0 +1,39 @@
+.open --hexdb
+| size 8192 pagesize 4096 filename winfunc016.txt.db
+| page 1 offset 0
+|      0: 53 51 4c 69 74 65 20 66 6f 72 6d 61 74 20 33 00   SQLite format 3.
+|     16: 10 00 01 01 00 40 20 20 00 00 00 00 00 00 00 02   .....@  ........
+|     32: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 04   ................
+|     48: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00   ................
+|     96: 00 00 00 00 0d 00 00 00 01 0f dc 00 0f dc 00 00   ................
+|   4048: 00 00 00 00 00 00 00 00 00 00 00 00 22 01 06 17   ................
+|   4064: 11 11 01 31 74 61 62 6c 65 74 31 74 31 02 43 52   ...1tablet1t1.CR
+|   4080: 45 41 54 45 20 54 41 42 4c 45 20 74 31 28 61 29   EATE TABLE t1(a)
+| page 2 offset 4096
+|      0: 0d 00 00 00 00 10 00 00 00 00 00 00 00 00 00 00   ................
+| end winfunc016.txt.db
+.testctrl prng_seed 1 db
+.testctrl internal_functions
+WITH
+separator(x) AS (VALUES('abc'),('uvwxyz')),
+value(y) AS (VALUES(1),(2))
+SELECT
+group_concat(printf('%d(%s)',y,x),printf(',%s,',x)) OVER (
+ORDER BY x ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING
+)FROM separator, value;
+WITH
+separator(x) AS (VALUES(',a,'),(',bc,'),(',def,'),(',ghij,')),
+value(y) AS (VALUES(1),(2),(3))
+SELECT
+group_concat(y,x) OVER  (ORDER BY x ROWS BETWEEN 5 PRECEDING AND 5 FOLLOWING)
+FROM separator, value;
+WITH separator(x) AS (VALUES(',a,'),(',bc,'),(',d,')), value(y) AS (VALUES(1),(2),(3))
+SELECT group_concat(y,x) OVER (ORDER BY x ROWS BETWEEN 3 PRECEDING AND 1 PRECEDING)
+FROM separator, value;
+WITH
+separator(x) AS (VALUES(',a,'),(',bc,'),(',d,')),
+value(y) AS (VALUES(1),(2),(3))
+SELECT
+group_concat(y,x) OVER (ORDER BY x ROWS BETWEEN 2 FOLLOWING AND 4 FOLLOWING)
+FROM separator, value;
+

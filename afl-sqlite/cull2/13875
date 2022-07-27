@@ -1,0 +1,2 @@
+CREATE TABLE t1(a sqlite_compileoption_used(1));
+CREATE VIEW v0 AS SELECT * FROM t1 INDEXED BY `a`WHERE a = 10;

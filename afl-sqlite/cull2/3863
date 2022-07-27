@@ -1,0 +1,1 @@
+SELECT quote(printf()), quote(printf( char(1),3));

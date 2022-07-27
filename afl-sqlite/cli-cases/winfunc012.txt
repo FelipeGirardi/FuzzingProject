@@ -1,0 +1,52 @@
+.open --hexdb
+| size 12288 pagesize 4096 filename winfunc012.txt.db
+| page 1 offset 0
+|      0: 53 51 4c 69 74 65 20 66 6f 72 6d 61 74 20 33 00   SQLite format 3.
+|     16: 10 00 01 01 00 40 20 20 00 00 00 00 00 00 00 03   .....@  ........
+|     32: 00 00 00 00 00 00 00 00 00 00 00 02 00 00 00 04   ................
+|     48: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00   ................
+|     96: 00 00 00 00 0d 00 00 00 02 0f 7d 00 0f a3 0f 7d   ................
+|   3952: 00 00 00 00 00 00 00 00 00 00 00 00 00 24 02 06   .............$..
+|   3968: 17 11 11 01 35 74 61 62 6c 65 74 32 74 32 03 43   ....5tablet2t2.C
+|   3984: 52 45 41 54 45 20 54 41 42 4c 45 20 74 32 28 78   REATE TABLE t2(x
+|   4000: 2c 79 29 5b 01 07 17 11 11 01 81 21 74 61 62 6c   ,y)[.......!tabl
+|   4016: 65 74 31 74 31 02 43 52 45 41 54 45 20 54 41 42   et1t1.CREATE TAB
+|   4032: 4c 45 20 74 31 28 61 20 49 4e 54 45 47 45 52 20   LE t1(a INTEGER 
+|   4048: 50 52 49 4d 41 52 59 20 4b 45 59 2c 20 62 20 43   PRIMARY KEY, b C
+|   4064: 48 41 52 28 31 29 2c 20 63 20 43 48 41 52 28 32   HAR(1), c CHAR(2
+|   4080: 29 2c 20 64 20 56 41 52 43 48 41 52 28 35 29 29   ), d VARCHAR(5))
+| page 2 offset 4096
+|      0: 0d 00 00 00 0d 0f 54 00 0f f1 0f e4 0f da 0f cc   ......T.........
+|     16: 0f be 0f b4 0f a5 0f 97 0f 8d 0f 7e 0f 71 0f 62   ...........~.q.b
+|     32: 0f 54 00 00 00 00 00 00 00 00 00 00 00 00 00 00   .T..............
+|   3920: 00 00 00 00 0c 0d 05 00 0f 11 15 4d 63 63 64 61   ...........Mccda
+|   3936: 76 65 0d 0c 05 00 0f 11 17 4c 63 63 63 69 6e 64   ve.......Lcccind
+|   3952: 79 0b 0b 05 00 0f 11 13 4b 63 63 62 6f 62 0d 0a   y.......Kccbob..
+|   3968: 05 00 0f 11 17 4a 63 63 61 6c 69 63 65 08 09 05   .....Jccalice...
+|   3984: 00 0f 11 00 49 61 61 0c 08 05 00 0f 11 15 48 62   ....Iaa.......Hb
+|   4000: 62 66 72 65 64 0d 07 05 00 0f 11 17 47 61 61 61   bfred.......Gaaa
+|   4016: 6c 69 63 65 08 06 05 00 0f 11 00 46 61 61 0c 05   lice.......Faa..
+|   4032: 05 00 0f 11 15 45 62 62 65 6d 6d 61 0c 04 05 00   .....Ebbemma....
+|   4048: 0f 11 15 44 63 63 64 61 76 65 08 03 05 00 0f 11   ...Dccdave......
+|   4064: 00 43 63 63 0b 02 05 00 0f 11 13 42 62 62 62 6f   .Ccc.......Bbbbo
+|   4080: 62 0d 01 05 00 0f 11 17 41 61 61 61 6c 69 63 65   b.......Aaaalice
+| page 3 offset 8192
+|      0: 0d 00 00 00 00 10 00 00 00 00 00 00 00 00 00 00   ................
+| end winfunc012.txt.db
+.testctrl prng_seed 1 db
+.testctrl internal_functions
+INSERT INTO t2(rowid,x,y) SELECT a, (a-1)/4 + 1, b FROM t1;
+SELECT
+  group_concat(b,'') FILTER (WHERE (a%2)==1),
+  group_concat(b,'') FILTER (WHERE (a%2)==0),
+  group_concat(b,'')
+FROM t1;
+SELECT * FROM t1 JOIN t2 ON (t2.y=t1.b) JOIN (SELECT
+  group_concat(b,'') FILTER (WHERE (a%2)==1),
+  group_concat(b,'') FILTER (WHERE (a%2)==0),
+  group_concat(b,'')
+FROM t1);
+SELECT count(distinct x) FILTER (WHERE rowid>7) FROM t2;
+SELECT max(a) FILTER (WHERE b<'H') FROM t1;
+SELECT abs(a) FILTER (WHERE b<'G') FROM t1;
+

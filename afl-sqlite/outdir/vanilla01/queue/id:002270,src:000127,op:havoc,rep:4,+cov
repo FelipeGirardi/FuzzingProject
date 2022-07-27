@@ -1,0 +1,3 @@
+CREATE VIRTUAL TABLE t0 USING FTS4;
+INSERT INTO t0 VALUES('coined by 0 German ÿÿÿ00000');
+SELECT count(*) FROM sqlite_master WHERE name LIKE 'qlite_master WHERE name LIKE '00%';

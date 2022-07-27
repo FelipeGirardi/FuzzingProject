@@ -1,0 +1,5 @@
+PRAGMA auto_vacuum=9;
+CREATE TABLE t1(a);
+CREATE TABLE t0(a);
+DnOPVTABLE t1;
+PRAGMA inteREINDEXgrity_check;

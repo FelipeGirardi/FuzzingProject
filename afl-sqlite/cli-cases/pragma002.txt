@@ -1,0 +1,102 @@
+.open --hexdb
+| size 36864 pagesize 4096 filename pragma002.txt.db
+| page 1 offset 0
+|      0: 53 51 4c 69 74 65 20 66 6f 72 6d 61 74 20 33 00   SQLite format 3.
+|     16: 10 00 01 01 00 40 20 20 00 00 00 00 00 00 00 09   .....@  ........
+|     32: 00 00 00 00 00 00 00 00 00 00 00 08 00 00 00 04   ................
+|     48: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00   ................
+|     96: 00 00 00 00 0d 0e 11 00 09 0d 28 00 0f c8 0f 7b   ..........(.....
+|    112: 0f 53 0f 27 0e ed 0e 81 0e 19 0d 28 0d de 00 00   .S.'.......(....
+|   3360: 00 00 00 00 00 00 00 00 81 33 08 07 17 1f 1f 01   .........3......
+|   3376: 82 35 74 61 62 6c 65 74 33 5f 73 65 67 64 69 72   .5tablet3_segdir
+|   3392: 74 33 5f 73 65 67 64 69 72 08 43 52 45 41 54 45   t3_segdir.CREATE
+|   3408: 20 54 41 42 4c 45 20 27 74 33 5f 73 65 67 64 69    TABLE 't3_segdi
+|   3424: 72 27 28 6c 65 76 65 6c 20 49 4e 54 45 47 45 52   r'(level INTEGER
+|   3440: 2c 69 64 78 20 49 4e 54 45 47 45 52 2c 73 74 61   ,idx INTEGER,sta
+|   3456: 72 74 5f 62 6c 6f 63 6b 20 49 4e 54 45 47 45 52   rt_block INTEGER
+|   3472: 2c 6c 65 61 76 65 73 5f 65 6e 64 5f 62 6c 6f 63   ,leaves_end_bloc
+|   3488: 6b 20 49 4e 54 45 47 45 52 2c 65 6e 64 5f 62 6c   k INTEGER,end_bl
+|   3504: 6f 63 6b 20 49 4e 54 45 47 45 52 2c 72 6f 6f 74   ock INTEGER,root
+|   3520: 20 42 4c 4f 42 2c 50 52 49 4d 41 52 59 20 4b 45    BLOB,PRIMARY KE
+|   3536: 59 28 6c 65 76 65 6c 2c 20 69 64 78 29 29 31 09   Y(level, idx))1.
+|   3552: 06 17 45 1f 01 00 69 6e 64 65 78 73 71 6c 69 74   ..E...indexsqlit
+|   3568: 65 5f 61 75 74 6f 69 6e 64 65 78 5f 74 33 5f 73   e_autoindex_t3_s
+|   3584: 65 67 64 69 72 5f 31 74 33 5f 73 65 67 64 69 72   egdir_1t3_segdir
+|   3600: 09 00 00 00 08 00 00 00 00 66 07 07 17 23 23 01   .........f...##.
+|   3616: 81 13 74 61 62 6c 65 74 33 5f 73 65 67 6d 65 6e   ..tablet3_segmen
+|   3632: 74 73 74 33 5f 73 65 67 6d 65 6e 74 73 07 43 52   tst3_segments.CR
+|   3648: 45 41 54 45 20 54 41 42 4c 45 20 27 74 33 5f 73   EATE TABLE 't3_s
+|   3664: 65 67 6d 65 6e 74 73 27 28 62 6c 6f 63 6b 69 64   egments'(blockid
+|   3680: 20 49 4e 54 45 47 45 52 20 50 52 49 4d 41 52 59    INTEGER PRIMARY
+|   3696: 20 4b 45 59 2c 20 62 6c 6f 63 6b 20 42 4c 4f 42    KEY, block BLOB
+|   3712: 29 6a 06 07 17 21 21 01 81 1f 74 61 62 6c 65 74   )j...!!...tablet
+|   3728: 33 5f 63 6f 6e 74 65 6e 74 74 33 5f 63 6f 6e 74   3_contentt3_cont
+|   3744: 65 6e 74 06 43 52 45 41 54 45 20 54 41 42 4c 45   ent.CREATE TABLE
+|   3760: 20 27 74 33 5f 63 6f 6e 74 65 6e 74 27 28 64 6f    't3_content'(do
+|   3776: 63 69 64 20 49 4e 54 45 47 45 52 20 50 52 49 4d   cid INTEGER PRIM
+|   3792: 41 52 59 20 4b 45 59 2c 20 27 63 30 61 27 2c 20   ARY KEY, 'c0a', 
+|   3808: 27 63 31 62 27 2c 20 27 63 32 63 27 29 38 05 06   'c1b', 'c2c')8..
+|   3824: 17 11 11 08 5f 74 61 62 6c 65 74 33 74 33 43 52   ...._tablet3t3CR
+|   3840: 45 41 54 45 20 56 49 52 54 55 41 4c 20 54 41 42   EATE VIRTUAL TAB
+|   3856: 4c 45 20 74 33 20 55 53 49 4e 47 20 66 74 73 33   LE t3 USING fts3
+|   3872: 28 61 2c 62 2c 63 29 2a 04 06 17 13 11 01 3f 69   (a,b,c)*......?i
+|   3888: 6e 64 65 78 74 32 78 74 32 05 43 52 45 41 54 45   ndext2xt2.CREATE
+|   3904: 20 49 4e 44 45 58 20 74 32 78 20 4f 4e 20 74 32    INDEX t2x ON t2
+|   3920: 28 78 29 26 03 06 17 11 11 01 39 74 61 62 6c 65   (x)&......9table
+|   3936: 74 32 74 32 04 43 52 45 41 54 45 20 54 41 42 4c   t2t2.CREATE TABL
+|   3952: 45 20 74 32 28 78 2c 79 2c 7a 29 4b 02 06 17 15   E t2(x,y,z)K....
+|   3968: 11 01 7f 69 6e 64 65 78 74 31 78 31 74 31 03 43   ...indext1x1t1.C
+|   3984: 52 45 41 54 45 20 49 4e 44 45 58 20 74 31 78 31   REATE INDEX t1x1
+|   4000: 20 4f 4e 20 74 31 28 61 2c 62 2b 63 2c 64 20 44    ON t1(a,b+c,d D
+|   4016: 45 53 43 29 20 57 48 45 52 45 20 66 20 49 53 20   ESC) WHERE f IS 
+|   4032: 4e 4f 54 20 4e 55 4c 4c 36 01 06 17 11 11 01 59   NOT NULL6......Y
+|   4048: 74 61 62 6c 65 74 31 74 31 02 43 52 45 41 54 45   tablet1t1.CREATE
+|   4064: 20 54 41 42 4c 45 20 74 31 28 61 2c 62 2c 63 2c    TABLE t1(a,b,c,
+|   4080: 64 2c 65 2c 66 2c 67 2c 68 2c 69 2c 6a 2c 6b 29   d,e,f,g,h,i,j,k)
+| page 2 offset 4096
+|      0: 0d 00 00 00 00 10 00 00 00 00 00 00 00 00 00 00   ................
+| page 3 offset 8192
+|      0: 0a 00 00 00 00 10 00 00 00 00 00 00 00 00 00 00   ................
+| page 4 offset 12288
+|      0: 0d 00 00 00 00 10 00 00 00 00 00 00 00 00 00 00   ................
+| page 5 offset 16384
+|      0: 0a 00 00 00 00 10 00 00 00 00 00 00 00 00 00 00   ................
+| page 6 offset 20480
+|      0: 0d 00 00 00 00 10 00 00 00 00 00 00 00 00 00 00   ................
+| page 7 offset 24576
+|      0: 0d 00 00 00 00 10 00 00 00 00 00 00 00 00 00 00   ................
+| page 8 offset 28672
+|      0: 0d 00 00 00 00 10 00 00 00 00 00 00 00 00 00 00   ................
+| page 9 offset 32768
+|      0: 0a 00 00 00 00 10 00 00 00 00 00 00 00 00 00 00   ................
+| end pragma002.txt.db
+.testctrl prng_seed 1 db
+.testctrl internal_functions
+PRAGMA synchronous;
+PRAGMA synchronous=OFF;
+PRAGMA synchronous=ON;
+PRAGMA synchronous=EXTRA;
+SELECT * FROM sqlite_master x, pragma_table_xinfo(x.name) WHERE x.type='table';
+SELECT * FROM sqlite_master x, pragma_index_xinfo(x.name);
+SELECT * FROM pragma_table_list WHERE strict;
+SELECT * FROM pragma_table_list WHERE wr;
+SELECT * FROM pragma_table_list WHERE type='view';
+SELECT * FROM pragma_table_list WHERE type='shadow';
+SELECT * FROM pragma_table_list WHERE type='virtual';
+SELECT * FROM pragma_table_list WHERE type='table';
+PRAGMA main.table_xinfo(t3);
+PRAGMA main.table_list;
+PRAGMA index_info(t1x1);
+PRAGMA index_xinfo(t1x1);
+PRAGMA database_list;
+PRAGMA encoding=UTF8;
+PRAGMA encoding=UTF16BE;
+PRAGMA encoding=UTF16LE;
+PRAGMA wal_checkpoint=FULL;
+PRAGMA wal_checkpoint=RESTART;
+PRAGMA wal_checkpoint=TRUNCATE;
+PRAGMA shrink_memory;
+PRAGMA optimize;
+PRAGMA threads;
+PRAGMA threads=10;
+

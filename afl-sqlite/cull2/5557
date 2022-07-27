@@ -1,0 +1,3 @@
+ATTACH nulll AS null;
+ATTACH l AS null;
+ATTACH '' AS '';

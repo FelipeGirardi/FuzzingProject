@@ -1,0 +1,2 @@
+WITH i( a,bx) AS ( VALUES(1,2) )
+SELECT * FROM i;

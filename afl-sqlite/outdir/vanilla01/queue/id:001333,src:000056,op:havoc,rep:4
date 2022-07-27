@@ -1,0 +1,10 @@
+PRAGMA cache_size = 10;
+CREATE TABLE t1(x PRIMARY KEY);
+ VALUES(randomblob(900));
+INSERT INTO t1 SELECT randomb INTO t1 SeLECT randomblob(900) FROM t1;
+INSERT INTO t1 SELECT randomblob(900) FROM t1;
+INST randomblob(900) FROM t1;
+INSERT INTO t1 SELECT randomblob(900) FROM t1;
+INSERT INTO t1 SELECT randomblob(900) FROM t1;      /* 64 rows */
+BEGIN;
+UPDATE t1 SET x = randomblob(900);

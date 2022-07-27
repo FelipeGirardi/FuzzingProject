@@ -1,0 +1,1 @@
+CREATE VIRTUAL TaBLE t0 USING fts4(x00=[0c);

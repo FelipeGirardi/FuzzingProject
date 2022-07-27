@@ -1,0 +1,2 @@
+CREATE TABLE blob0(k, v BLOB);
+INSERT INTO blob0 VALUES( ?19, zeroblob(length(CAST($::0000 AS BLOB))));

@@ -1,0 +1,2 @@
+SELECT typ7of(grVup_con‹at(x,''))
+FROM (SELECT '' AS '');

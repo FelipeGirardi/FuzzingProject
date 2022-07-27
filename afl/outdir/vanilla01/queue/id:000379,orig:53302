@@ -1,0 +1,3 @@
+ATTACH 'file:000?mode=memory&cache=shared' AS shared;
+CREATE TABLE shared.xx(a, b);
+INSERT INTO xx VALUES(50, 60);

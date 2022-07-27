@@ -1,0 +1,27 @@
+.open --hexdb
+| size 8192 pagesize 4096 filename expr003.txt.db
+| page 1 offset 0
+|      0: 53 51 4c 69 74 65 20 66 6f 72 6d 61 74 20 33 00   SQLite format 3.
+|     16: 10 00 01 01 00 40 20 20 00 00 00 00 00 00 00 02   .....@  ........
+|     32: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 04   ................
+|     48: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00   ................
+|     96: 00 00 00 00 0d 00 00 00 01 0f 94 00 0f 94 00 00   ................
+|   3984: 00 00 00 70 6a 01 07 17 11 11 01 81 3f 74 61 62   ...pj.......?tab
+|   4000: 6c 65 74 31 74 31 02 43 52 45 41 54 45 20 54 41   let1t1.CREATE TA
+|   4016: 42 4c 45 20 74 31 28 61 20 49 4e 54 45 47 45 52   BLE t1(a INTEGER
+|   4032: 20 50 52 49 4d 41 52 59 20 4b 45 59 2c 62 20 42    PRIMARY KEY,b B
+|   4048: 4c 4f 42 20 64 65 66 61 75 6c 74 28 3f 31 35 29   LOB default(?15)
+|   4064: 2c 63 20 52 45 41 4c 20 44 45 46 41 55 4c 54 20   ,c REAL DEFAULT 
+|   4080: 35 29 0a 57 49 54 48 4f 55 54 20 52 4f 57 49 44   5).WITHOUT ROWID
+| page 2 offset 4096
+|      0: 0a 00 00 00 00 10 00 00 00 00 00 00 00 00 00 00   ................
+| end expr003.txt.db
+.testctrl prng_seed 1 db
+.testctrl internal_functions
+INSERT INTO t1(a) VALUES(-9223372036854775808);
+SELECT * FROM t1;
+CREATE TABLE t2(a INT PRIMARY KEY default 17, b BLOB default(current_timestamp), c TEXT UNIQUE DEFAULT 'charlie', UNIQUE(c,b,b,a)) WITHOUT ROWID;
+INSERT INTO t2 DEFAULT VALUES RETURNING *;
+SELECT * FROM t2;
+CREATE TABLE t3(a INT PRIMARY KEY, b BLOB default(?2), c TEXT);
+

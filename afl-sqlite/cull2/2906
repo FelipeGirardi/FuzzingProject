@@ -1,0 +1,4 @@
+CREATE TABLE t1(x INTEGER PRIMARY KEY, y, z);
+CREATE TABLE t2(a, b);
+CREATE VIEW a002 AS SELECT a, sum(b) AS m FROM t2 GROUP BY a,
+ a, sum(m) AS;

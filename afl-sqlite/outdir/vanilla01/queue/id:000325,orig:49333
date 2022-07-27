@@ -1,0 +1,2 @@
+CREATE TABLE a0c(a, b, c);
+PRAGMA page_count;

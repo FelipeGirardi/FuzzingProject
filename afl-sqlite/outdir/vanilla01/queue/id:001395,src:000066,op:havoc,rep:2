@@ -1,0 +1,2 @@
+CREATE TABLE t0(c DEFAULT '000'd;
+PRGMA table_info(t0);

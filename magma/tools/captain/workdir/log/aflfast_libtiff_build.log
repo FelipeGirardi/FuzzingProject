@@ -1,0 +1,52 @@
+++ id -u root
+++ id -g root
++ docker build -t magma/aflfast/libtiff --build-arg fuzzer_name=aflfast --build-arg target_name=libtiff --build-arg USER_ID=0 --build-arg GROUP_ID=0 --build-arg canaries=1 -f /home/felipe/fuzzing/magma/docker/Dockerfile /home/felipe/fuzzing/magma
+Sending build context to Docker daemon  162.1MB
+Step 1/59 : FROM ubuntu:18.04
+ ---> ad080923604a
+Step 2/59 : RUN apt-get update && apt-get install -y sudo
+ ---> Using cache
+ ---> ce901b4fd290
+Step 3/59 : ARG magma_root=./
+ ---> Using cache
+ ---> 2402b9b4400a
+Step 4/59 : ENV MAGMA_R /magma
+ ---> Using cache
+ ---> 532bd7af66ca
+Step 5/59 : ENV OUT		/magma_out
+ ---> Using cache
+ ---> 64b70144d813
+Step 6/59 : ENV SHARED 	/magma_shared
+ ---> Using cache
+ ---> 69157ff30ebb
+Step 7/59 : ENV CC  /usr/bin/gcc
+ ---> Using cache
+ ---> fe70041458f2
+Step 8/59 : ENV CXX /usr/bin/g++
+ ---> Using cache
+ ---> 35a4dbdb59c5
+Step 9/59 : ENV LD /usr/bin/ld
+ ---> Using cache
+ ---> edb29d9e2667
+Step 10/59 : ENV AR /usr/bin/ar
+ ---> Using cache
+ ---> 1be7d47f172c
+Step 11/59 : ENV AS /usr/bin/as
+ ---> Using cache
+ ---> 90d43c6146c3
+Step 12/59 : ENV NM /usr/bin/nm
+ ---> Using cache
+ ---> 63d624b6ff39
+Step 13/59 : ENV RANLIB /usr/bin/ranlib
+ ---> Using cache
+ ---> ad57aa145b71
+Step 14/59 : ARG USER_ID=1000
+ ---> Using cache
+ ---> 9ab8d5052f9f
+Step 15/59 : ARG GROUP_ID=1000
+ ---> Using cache
+ ---> c0122b3354cd
+Step 16/59 : RUN mkdir -p /home && 	groupadd -g ${GROUP_ID} magma && 	useradd -l -u ${USER_ID} -K UMASK=0000 -d /home -g magma magma && 	chown magma:magma /home
+ ---> Running in 5671aefa260f
+[91mgroupadd: GID '0' already exists
+[0mThe command '/bin/sh -c mkdir -p /home && 	groupadd -g ${GROUP_ID} magma && 	useradd -l -u ${USER_ID} -K UMASK=0000 -d /home -g magma magma && 	chown magma:magma /home' returned a non-zero code: 4

@@ -1,0 +1,1 @@
+SELECT c0000000(b),l0000(b),l00000(b),m00(b,5),b*100,cKEYROM t0 ORDER BY a;

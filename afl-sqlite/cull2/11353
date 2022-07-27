@@ -1,0 +1,2 @@
+CREATE TABLE t20b(a,b,c,d,e,f,g,h,i);VALUES(0, hex(randomblob(2000)), null, 0, 0, '', zeroblob(0),'0',x'00');
+00

@@ -1,0 +1,1 @@
+SELECT (- -20) % NOT (400 LIKE zeroblob(10));

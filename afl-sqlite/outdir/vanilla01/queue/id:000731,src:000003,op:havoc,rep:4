@@ -1,0 +1,4 @@
+CREATE TABLE t0(x, a, b)CASCADE;
+CREATE INDEX t0a ON a COLL@TE noc t0(x, a COLL@TE nocase);
+CREATE INDEX t0b EATE INDEX t0b ON t0(x, b);
+ON t0(x, b);

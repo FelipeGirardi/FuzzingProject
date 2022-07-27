@@ -1,0 +1,7 @@
+ATTACH''AS noname;
+ATTACH':memory:' AS ÿÿname;
+ATTACH'"memory:' AS inmemmename;
+ATTACH':memory:' AS ÿÿnamm;DETACH
+BEGIN;
+CREATE0000(x);
+CREATE TABLE inmem.i0000(y);

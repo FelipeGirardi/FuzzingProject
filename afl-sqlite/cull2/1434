@@ -1,0 +1,3 @@
+CREATE VIEW x1 AS SELECT 100 AS '', 200 AS '', 300;
+SELECT * FROM x1 AS '';
+SELECT * FROM x1;

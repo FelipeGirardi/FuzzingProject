@@ -1,0 +1,2 @@
+CREATE VIRTUAL TABLE t0 USING fts4(languageid=l00);
+INSERT INTO t0 VALUES('I belong t0 l0ng00g0 0!');

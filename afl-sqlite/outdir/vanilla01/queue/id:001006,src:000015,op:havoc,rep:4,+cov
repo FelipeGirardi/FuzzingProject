@@ -1,0 +1,8 @@
+ATTACH''AS noname;ATTACH':mem count(1)ory:' AS inmem;
+BEGIN;
+CREATE TABLE noname.n00000(x);
+CREATE TABLE inmem.i0000(y);
+CREATE TABLE maim.sqlite_man.m000(z);
+COMMIT;
+SELECT name FROM nonamen00000(x);
+CREATE TABLE inmem.i0 inmem.sqlite_master;

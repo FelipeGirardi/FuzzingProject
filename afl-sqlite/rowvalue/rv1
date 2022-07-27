@@ -1,0 +1,8 @@
+CREATE TABLE t1(a INTEGER,b,c,d,PRIMARY KEY(a));
+INSERT INTO t1(a,b,c,d)
+  SELECT value, 4, (value*1234)%1000, printf('%08x',(value*1234567)%0xffffffff)
+    FROM generate_series(1,20);
+SELECT 1,count(*) FROM t1 WHERE (b,a)<(4,10);
+SELECT 2,quote(d) FROM t1 WHERE (b,a)=(4,10);
+SELECT 3,quote(d) FROM t1 WHERE (b,a) IN (SELECT b,a FROM t1 WHERE a<10);
+UPDATE t1 SET (c,b)=(SELECT b,a FROM t1 AS x WHERE x.a=t1.a);

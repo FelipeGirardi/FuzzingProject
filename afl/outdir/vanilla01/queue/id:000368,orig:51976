@@ -1,0 +1,2 @@
+CREATE TABLE t0(a,b);
+SELECT 5 IN (SELECT a,b FROM t0);

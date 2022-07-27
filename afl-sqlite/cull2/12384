@@ -1,0 +1,2 @@
+CREATE TABLE temp.IF(a, b);
+ALTEM sqlite_temp_master WHERE tbl_name = 't

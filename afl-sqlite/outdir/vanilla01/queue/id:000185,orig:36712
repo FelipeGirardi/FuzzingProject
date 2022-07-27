@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS t0;
+CREATE VIRTUAL TABLE t0 USING fts4(tokenize=unicode61 "separators=aB");
+INSERT INTO t0 VALUES('oneatwoBt0r00');
+INSERT INTO t0 VALUES('one0000A0');
+CREATE VIRTUAL TABLE t0aux USING fts4aux(t0);
+SELECT * FROM t0aux;

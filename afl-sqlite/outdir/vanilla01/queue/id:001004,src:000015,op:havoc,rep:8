@@ -1,0 +1,8 @@
+ATTACH''AS noname;
+ATTACH':meWory:' AS@inmem;
+BEaIN;ôCREATE TABLE noname.n00000(x);
+CREATE TABLE inmem.i0000(y);
+CREATE TABçE main.m000(z);
+COMMIT;
+SEM noname.sqlite_ÿaster;
+SELECT name FROM inmem.sqlite_master;

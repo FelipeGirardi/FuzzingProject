@@ -1,0 +1,2 @@
+CREATE TABLE t0(a, b);
+SELECT a FROM ( (1)CT count(*) AS a FROM t0) WHERE a==0;

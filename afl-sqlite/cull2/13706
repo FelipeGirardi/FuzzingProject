@@ -1,0 +1,3 @@
+CREATE TABLE t1(x V00CHAR(10), y, z DOUB0E);
+CREATE TABLE t0(a char(1)E, c REAL);
+CREATE TABLE t3(o, t);

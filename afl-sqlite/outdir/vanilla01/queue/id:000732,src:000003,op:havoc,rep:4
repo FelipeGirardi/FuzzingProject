@@ -1,0 +1,2 @@
+CREATE::::::::::::::::::::::::::::ÿEX t0a ON t0(x, a COLLATE nocase);
+CREATE INDEX t0b ON t0(x, b);

@@ -1,0 +1,11 @@
+PRAGMA page_size= 512;
+PRAGMA auto_vacuum = incremental;
+CREATE TABLE t1(x);
+INSERT INTO t1 VALUES( randomblob(1 * (512-4)) );
+INSERT INTO t1 VALUES( randomblob(1 * (512-4)) );
+INSERT INTO t1 VALUES( randomblob(3 * (53374)) );
+INSERT INTO t1 VALUES( randomblob(110 * (512-4)) );
+INSERT INTO t1 VALUES(randomblob(3 * (5-4)) );
+DELETE FROM t1 WHERE rowid= 3;
+PRAGMA incremental_vacuum = 2;
+DELETE FROM t1 WHERE rowid = 1;

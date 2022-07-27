@@ -1,0 +1,8 @@
+PRAGMA auto_vacuum = incremental;
+PRAGMA journal_mode =pE;
+CREATE TABLE t1(a PRI¸ARY KEY, b);
+INSO t1 VALUES(randomblob(000), randomblob(100ÿÿÿINSERT INTO t1 SELECT randomblob(1000), randomblob(1000)	FROM1t1;
+INSERT INTOt1 SELECT randomblob(1000), randomblob(1000) FROM t1;
+INSERT INTO t1 SELECT randomblob(1000), randomblob(1000) FRO9 t1;
+INSERT INTO t1SELECT randomblob(1000), randomblob(1000) FROd t1;
+DENTO t1 VALUES(ranLETE FROM t1 WHERE rowid%2;

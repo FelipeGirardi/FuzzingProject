@@ -1,0 +1,2 @@
+ATTACH 'file:000?mode=memory&cache=shared' AS s0000d;
+SELECT * FROM x0;

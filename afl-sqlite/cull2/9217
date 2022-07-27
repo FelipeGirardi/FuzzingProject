@@ -1,0 +1,2 @@
+CREATE TABLE t0 (a, b, PRIMARY KEY(b, a)) WITHOUT ROWID;
+INSERT INTO t0(a, b) VALUES('ab0', '000');REINDEX t0 SET a='ab0', b='000';

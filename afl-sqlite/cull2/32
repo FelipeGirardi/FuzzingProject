@@ -1,0 +1,5 @@
+CREATE TABLE [sill0 0 0a0e](a, b, c);
+CREATE INDEX '''00000' ON [sill0 0 0a0e](a, b);
+CREATE INDEX '0000000000000000''00000' ON [sill0 0 0a0e](c);
+INSERT INTO [sill0 0 0a0e] VALUES( `a`, 3);
+I

@@ -1,0 +1,40 @@
+.open --hexdb
+| size 8192 pagesize 4096 filename select002.txt.db
+| page 1 offset 0
+|      0: 53 51 4c 69 74 65 20 66 6f 72 6d 61 74 20 33 00   SQLite format 3.
+|     16: 10 00 01 01 00 40 20 20 00 00 00 00 00 00 00 02   .....@  ........
+|     32: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 04   ................
+|     48: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00   ................
+|     96: 00 00 00 00 0d 00 00 00 01 0f d8 00 0f d8 00 00   ................
+|   4048: 00 00 00 00 00 00 00 00 26 01 06 17 11 11 01 39   ........&......9
+|   4064: 74 61 62 6c 65 74 31 74 31 02 43 52 45 41 54 45   tablet1t1.CREATE
+|   4080: 20 54 41 42 4c 45 20 74 31 28 61 2c 62 2c 63 29    TABLE t1(a,b,c)
+| page 2 offset 4096
+|      0: 0d 00 00 00 06 0f a2 00 0f ed 0f da 0f c6 0f ba   ................
+|     16: 0f ae 0f a2 00 00 00 00 00 00 00 00 00 00 00 00   ................
+|   4000: 00 00 0a 06 04 16 01 00 31 32 33 34 35 61 0a 05   ........12345a..
+|   4016: 04 00 16 01 41 42 43 44 45 62 0a 04 04 01 00 16   ....ABCDEb......
+|   4032: 63 61 62 63 64 65 12 03 04 17 01 07 73 65 76 65   cabcde......seve
+|   4048: 6e 08 40 22 00 00 00 00 00 00 11 02 04 07 15 01   n.@.............
+|   4064: 40 10 00 00 00 00 00 00 66 69 76 65 06 11 01 04   @.......five....
+|   4080: 09 07 17 40 00 00 00 00 00 00 00 74 68 72 65 65   ...@.......three
+| end select002.txt.db
+.testctrl prng_seed 1 db
+.testctrl internal_functions
+SELECT a,b,c,* FROM t1, pragma_database_list ORDER BY a LIMIT 1+0,3+4;
+SELECT rowid, max(a,b,c), min(a,b,c) FROM t1;
+DROP TABLE IF EXISTS t2;
+CREATE TABLE t2(x INTEGER PRIMARY KEY,y,z);
+INSERT OR IGNORE INTO t2 SELECT a,b,c FROM t1;
+SELECT rowid, typeof(a), round(b,2) FROM t1;
+SELECT last_insert_rowid();
+SELECT changes();
+SELECT total_changes();
+SELECT sqlite_source_id();
+SELECT sqlite_version();
+SELECT a FROM t1 WHERE b GLOB '*[efg]*' AND b GLOB '*[^xyz]*';
+SELECT nullif(a,b), nullif(b,b) FROM t1;
+WITH RECURSIVE c(x) AS (VALUES(1) UNION ALL SELECT x+1 FROM c WHERE x<100)
+SELECT unicode(substr(sqlite_source_id(),x,x)), char(1<<x) FROM c;
+SELECT length(char(20,200,2000,20000)) FROM t1;
+

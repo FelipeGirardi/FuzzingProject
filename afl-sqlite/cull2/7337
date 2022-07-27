@@ -1,0 +1,2 @@
+CREATE TEMP TABLE ô0001(a,b,c);
+SELECT * FROM sqlite_temp_master WHERE sql GLOB '*ÿ€000';

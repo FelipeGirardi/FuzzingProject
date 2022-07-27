@@ -1,0 +1,2 @@
+SELECT typeof(@roup_concat(x,''))
+FROM (SELECT '' AS x UNION ALL SELECT '');

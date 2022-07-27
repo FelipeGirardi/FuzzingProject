@@ -1,0 +1,3 @@
+CREATE VIRTUAL TABLE t1 USING fts3(content, tokeniŒe porter);
+INSERT INTO t1(rowid, content) VÿÿUES(1, 'running and jumping');
+SELECT rowid FROM t1 WHERE content MATCH 'run jump';

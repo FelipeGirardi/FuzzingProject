@@ -1,0 +1,94 @@
+.open --hexdb
+| size 20480 pagesize 4096 filename pragma001.txt.db
+| page 1 offset 0
+|      0: 53 51 4c 69 74 65 20 66 6f 72 6d 61 74 20 33 00   SQLite format 3.
+|     16: 10 00 01 01 00 40 20 20 00 00 00 00 00 00 00 05   .....@  ........
+|     32: 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 04   ................
+|     48: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00   ................
+|     96: 00 00 00 00 0d 0f f8 00 04 0e 30 00 0e 94 0f d3   ..........0.....
+|    112: 0e 5c 0e 30 00 00 00 00 00 00 00 00 00 00 00 00   ...0............
+|   3632: 2a 04 06 17 13 11 01 3f 69 6e 64 65 78 74 31 62   *......?indext1b
+|   3648: 74 31 05 43 52 45 41 54 45 20 49 4e 44 45 58 20   t1.CREATE INDEX 
+|   3664: 74 31 62 20 4f 4e 20 74 31 28 62 29 36 03 06 17   t1b ON t1(b)6...
+|   3680: 11 11 01 59 74 61 62 6c 65 74 32 74 32 04 43 52   ...Ytablet2t2.CR
+|   3696: 45 41 54 45 20 54 41 42 4c 45 20 74 32 28 78 20   EATE TABLE t2(x 
+|   3712: 49 4e 54 45 47 45 52 20 50 52 49 4d 41 52 59 20   INTEGER PRIMARY 
+|   3728: 4b 45 59 29 82 3c 01 07 17 11 11 01 84 63 74 61   KEY).<.......cta
+|   3744: 62 6c 65 74 31 74 31 02 43 52 45 41 54 45 20 54   blet1t1.CREATE T
+|   3760: 41 42 4c 45 20 74 31 28 61 20 49 4e 54 2c 20 62   ABLE t1(a INT, b
+|   3776: 20 52 45 41 4c 2c 20 63 20 56 41 52 43 48 41 52    REAL, c VARCHAR
+|   3792: 28 31 30 29 2c 0a 64 20 54 45 58 54 2c 20 65 20   (10),.d TEXT, e 
+|   3808: 42 4c 4f 42 2c 20 66 20 44 41 54 45 2c 20 67 2c   BLOB, f DATE, g,
+|   3824: 68 2c 69 2c 6a 2c 50 52 49 4d 41 52 59 20 4b 45   h,i,j,PRIMARY KE
+|   3840: 59 28 61 2c 62 2c 63 2c 64 2c 65 29 2c 0a 46 4f   Y(a,b,c,d,e),.FO
+|   3856: 52 45 49 47 4e 20 4b 45 59 28 61 29 20 52 45 46   REIGN KEY(a) REF
+|   3872: 45 52 45 4e 43 45 53 20 74 32 28 78 29 20 4f 4e   ERENCES t2(x) ON
+|   3888: 20 44 45 4c 45 54 45 20 43 41 53 43 41 44 45 2c    DELETE CASCADE,
+|   3904: 0a 46 4f 52 45 49 47 4e 20 4b 45 59 28 67 29 20   .FOREIGN KEY(g) 
+|   3920: 52 45 46 45 52 45 4e 43 45 53 20 74 31 28 61 29   REFERENCES t1(a)
+|   3936: 20 4f 4e 20 55 50 44 41 54 45 20 53 45 54 20 4e    ON UPDATE SET N
+|   3952: 55 4c 4c 20 4f 4e 20 44 45 4c 45 54 45 20 53 45   ULL ON DELETE SE
+|   3968: 54 20 44 45 46 41 55 4c 54 2c 0a 46 4f 52 45 49   T DEFAULT,.FOREI
+|   3984: 47 4e 20 4b 45 59 28 68 29 20 52 45 46 45 52 45   GN KEY(h) REFERE
+|   4000: 4e 43 45 53 20 74 32 28 78 29 20 4f 4e 20 44 45   NCES t2(x) ON DE
+|   4016: 4c 45 54 45 20 52 45 53 54 52 49 43 54 20 4f 4e   LETE RESTRICT ON
+|   4032: 20 55 50 44 41 54 45 20 4e 4f 20 41 43 54 49 4f    UPDATE NO ACTIO
+|   4048: 4e 0a 29 23 02 06 17 37 11 01 00 69 6e 64 65 78   N.)#...7...index
+|   4064: 73 71 6c 69 74 65 5f 61 75 74 6f 69 6e 64 65 78   sqlite_autoindex
+|   4080: 5f 74 31 5f 31 74 31 03 00 00 00 08 00 00 00 00   _t1_1t1.........
+| page 2 offset 4096
+|      0: 0d 00 00 00 00 10 00 00 00 00 00 00 00 00 00 00   ................
+| page 3 offset 8192
+|      0: 0a 00 00 00 00 10 00 00 00 00 00 00 00 00 00 00   ................
+| page 4 offset 12288
+|      0: 0d 00 00 00 00 10 00 00 00 00 00 00 00 00 00 00   ................
+| page 5 offset 16384
+|      0: 0a 00 00 00 00 10 00 00 00 00 00 00 00 00 00 00   ................
+| end pragma001.txt.db
+.testctrl prng_seed 1 db
+.testctrl internal_functions
+PRAGMA temp_store;
+PRAGMA temp_store=MEMORY;
+PRAGMA temp_store=FILE;
+PRAGMA temp_store;
+PRAGMA temp_store_directory;
+PRAGMA table_xinfo('t1');
+PRAGMA table_list;
+PRAGMA table_list('t1');
+PRAGMA foreign_key_list('t1');
+PRAGMA soft_heap_limit=0x1000000;
+PRAGMA page_count;
+PRAGMA max_page_count=1000;
+PRAGMA wal_checkpoint;
+PRAGMA busy_timeout=1000;
+PRAGMA application_id=19;
+PRAGMA application_id;
+PRAGMA automatic_index=OFF;
+PRAGMA cell_size_check=ON;
+PRAGMA page_size=512;
+PRAGMA page_size=1024;
+PRAGMA page_size=2048;
+PRAGMA page_size=4096;
+PRAGMA page_size=8092;
+PRAGMA page_size=16384;
+PRAGMA page_size=32768;
+PRAGMA page_size=65535;
+PRAGMA secure_delete=ON;
+PRAGMA secure_delete=OFF;
+PRAGMA secure_delete=FAST;
+PRAGMA jounal_mode=DELETE;
+PRAGMA jounal_mode=WAL;
+PRAGMA jounal_mode=MEMORY;
+PRAGMA jounal_mode=OFF;
+PRAGMA auto_vacuum;
+PRAGMA auto_vacuum=ON;
+PRAGMA auto_vacuum=OFF;
+PRAGMA auto_vacuum=INCREMENTAL;
+PRAGMA incremental_vacuum(1);
+PRAGMA cache_size=10;
+PRAGMA cache_size;
+PRAGMA mmap_size=1000000;
+SELECT * FROM pragma_collation_list();
+SELECT max(name) FROM pragma_table_xinfo('t1') WHERE rowid>0;
+SELECT * FROM pragma_freelist_count, pragma_compile_options;
+

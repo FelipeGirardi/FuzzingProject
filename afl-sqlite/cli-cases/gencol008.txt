@@ -1,0 +1,104 @@
+.open --hexdb
+| size 12288 pagesize 4096 filename gencol008.txt.db
+| page 1 offset 0
+|      0: 53 51 4c 69 74 65 20 66 6f 72 6d 61 74 20 33 00   SQLite format 3.
+|     16: 10 00 01 01 00 40 20 20 00 00 00 00 00 00 00 03   .....@  ........
+|     32: 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 04   ................
+|     48: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00   ................
+|     96: 00 00 00 00 0d 00 00 00 03 0e b9 00 0f 6f 0f 22   .............o..
+|    112: 0e b9 00 00 00 00 00 00 00 00 00 00 00 00 00 00   ................
+|   3760: 00 00 00 00 00 00 00 00 00 67 03 07 1b 11 11 08   .........g......
+|   3776: 81 37 74 72 69 67 67 65 72 72 31 74 31 43 52 45   .7triggerr1t1CRE
+|   3792: 41 54 45 20 54 52 49 47 47 45 52 20 72 31 20 41   ATE TRIGGER r1 A
+|   3808: 46 54 45 52 20 49 4e 53 45 52 54 20 4f 4e 20 74   FTER INSERT ON t
+|   3824: 31 20 42 45 47 49 4e 0a 20 20 49 4e 53 45 52 54   1 BEGIN.  INSERT
+|   3840: 20 49 4e 54 4f 20 6c 6f 67 20 56 41 4c 55 45 53    INTO log VALUES
+|   3856: 28 6e 65 77 2e 62 2c 6e 65 77 2e 63 29 3b 0a 45   (new.b,new.c);.E
+|   3872: 4e 44 4b 02 06 17 13 13 01 7f 74 61 62 6c 65 6c   NDK.......tablel
+|   3888: 6f 67 6c 6f 67 03 43 52 45 41 54 45 20 54 41 42   oglog.CREATE TAB
+|   3904: 4c 45 20 6c 6f 67 28 78 2c 79 2c 6d 31 20 41 53   LE log(x,y,m1 AS
+|   3920: 20 28 78 2b 79 29 2c 20 6d 32 20 41 53 20 28 32    (x+y), m2 AS (2
+|   3936: 2a 78 2b 33 2a 79 29 20 53 54 4f 52 45 44 29 81   *x+3*y) STORED).
+|   3952: 0e 01 07 17 11 11 01 82 07 74 61 62 6c 65 74 31   .........tablet1
+|   3968: 74 31 02 43 52 45 41 54 45 20 54 41 42 4c 45 20   t1.CREATE TABLE 
+|   3984: 74 31 28 0a 20 20 61 20 49 4e 54 2c 0a 20 20 62   t1(.  a INT,.  b
+|   4000: 20 47 45 4e 45 52 41 54 45 44 20 41 4c 57 41 59    GENERATED ALWAY
+|   4016: 53 20 41 53 20 28 61 62 73 28 61 2a 64 29 29 20   S AS (abs(a*d)) 
+|   4032: 56 49 52 54 55 41 4c 2c 0a 20 20 63 20 47 45 4e   VIRTUAL,.  c GEN
+|   4048: 45 52 41 54 45 44 20 41 4c 57 41 59 53 20 41 53   ERATED ALWAYS AS
+|   4064: 20 28 61 62 73 28 61 2a 31 30 2f 64 29 29 20 53    (abs(a*10/d)) S
+|   4080: 54 4f 52 45 44 2c 0a 20 20 64 20 49 4e 54 0a 29   TORED,.  d INT.)
+| page 2 offset 4096
+|      0: 0d 00 00 00 03 0f e6 00 0f f7 0f ef 0f e6 00 00   ................
+|   4064: 00 00 00 00 00 00 07 03 04 01 01 01 f9 04 0f 06   ................
+|   4080: 02 04 01 01 09 04 28 07 01 04 01 01 01 0a 05 14   ......(.........
+| page 3 offset 8192
+|      0: 0d 00 00 00 00 10 00 00 00 00 00 00 00 00 00 00   ................
+| end gencol008.txt.db
+.testctrl prng_seed 1 db
+.testctrl internal_functions
+SELECT *, '|' FROM t1 ORDER BY +a;
+INSERT INTO t1(a,d) VALUES(5,30);
+SELECT log.*, '|', t1.* FROM log, t1;
+DROP TRIGGER r1;
+CREATE TRIGGER r1 BEFORE INSERT ON t1 BEGIN
+  INSERT INTO log VALUES(new.b,new.c);
+END;
+DELETE FROM t1;
+DELETE FROM log;
+INSERT INTO t1(a,d) VALUES(5,30);
+SELECT log.*, '|', t1.* FROM log, t1;
+DROP TRIGGER r1;
+DELETE FROM t1;
+INSERT INTO t1 VALUES(5,30);
+CREATE TRIGGER r1 BEFORE UPDATE OF a ON t1 BEGIN
+  INSERT INTO log(x,y) VALUES(old.a,new.a);
+END;
+DELETE FROM log;
+UPDATE t1 SET a=b, d=2;
+SELECT log.*, '|', t1.* FROM log, t1;
+DROP TRIGGER r1;
+DELETE FROM t1;
+INSERT INTO t1 VALUES(5,30);
+CREATE TRIGGER r1 AFTER UPDATE OF a ON t1 BEGIN
+  INSERT INTO log(x,y) VALUES(old.a,new.a);
+END;
+DELETE FROM log;
+UPDATE t1 SET a=b, d=2;
+SELECT log.*, '|', t1.* FROM log, t1;
+DROP TRIGGER r1;
+DELETE FROM t1;
+INSERT INTO t1 VALUES(5,30);
+CREATE TRIGGER r1 BEFORE UPDATE OF b ON t1 BEGIN
+  INSERT INTO log(x,y) VALUES(old.a,new.a);
+END;
+DELETE FROM log;
+UPDATE t1 SET a=b, d=2;
+SELECT count(*) FROM log;
+DROP TABLE t1;
+CREATE TABLE t1(
+  a INT,
+  b GENERATED ALWAYS AS (abs(a*d)) VIRTUAL,
+  c GENERATED ALWAYS AS (abs(a*10/d)) VIRTUAL,
+  d INT
+);
+INSERT INTO t1(a,d) VALUES(10,20),(4,1),(-7,15);
+SELECT *, '|' FROM t1 ORDER BY +a;
+DROP TABLE IF EXISTS log;
+CREATE TABLE log(x,y,m1 AS (x+y), m2 AS (2*x+3*y) STORED);
+CREATE TRIGGER r1 BEFORE INSERT ON t1 BEGIN
+  INSERT INTO log VALUES(new.b,new.c);
+END;
+DELETE FROM t1;
+INSERT INTO t1(a,d) VALUES(5,30);
+SELECT log.*, '|', t1.* FROM log, t1;
+DROP TRIGGER r1;
+DELETE FROM t1;
+INSERT INTO t1 VALUES(5,30);
+CREATE TRIGGER r1 BEFORE UPDATE OF a ON t1 BEGIN
+  INSERT INTO log(x,y) VALUES(old.a,new.a);
+END;
+DELETE FROM log;
+UPDATE t1 SET a=b, d=2;
+SELECT log.*, '|', t1.* FROM log, t1;
+

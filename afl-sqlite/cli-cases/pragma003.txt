@@ -1,0 +1,51 @@
+.open --hexdb
+| size 8192 pagesize 4096 filename pragma003.txt.db
+| page 1 offset 0
+|      0: 53 51 4c 69 74 65 20 66 6f 72 6d 61 74 20 33 00   SQLite format 3.
+|     16: 10 00 01 01 00 40 20 20 00 00 00 00 00 00 00 02   .....@  ........
+|     32: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 04   ................
+|     48: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00   ................
+|     96: 00 00 00 00 0d 00 00 00 01 0f dc 00 0f dc 00 00   ................
+|   4048: 00 00 00 00 00 00 00 00 00 00 00 00 22 01 06 17   ................
+|   4064: 11 11 01 31 74 61 62 6c 65 74 31 74 31 02 43 52   ...1tablet1t1.CR
+|   4080: 45 41 54 45 20 54 41 42 4c 45 20 74 31 28 78 29   EATE TABLE t1(x)
+| page 2 offset 4096
+|      0: 0d 00 00 00 00 10 00 00 00 00 00 00 00 00 00 00   ................
+| end pragma003.txt.db
+.testctrl prng_seed 1 db
+.testctrl internal_functions
+PRAGMA application_id;
+PRAGMA application_id=1234;
+PRAGMA automatic_index=ON;
+PRAGMA automatic_index=OFF;
+PRAGMA busy_timeout=1234;
+PRAGMA cache_spill=1234;
+PRAGMA case_sensitive_like=ON;
+PRAGMA case_sensitive_like=OFF;
+PRAGMA cell_size_check=ON;
+PRAGMA cell_size_check=OFF;
+PRAGMA count_changes=ON;
+PRAGMA data_version;
+PRAGMA data_version=1234;
+PRAGMA defer_foreign_keys=ON;
+PRAGMA defer_foreign_keys=OFF;
+PRAGMA freelist_count;
+PRAGMA full_column_names=ON;
+PRAGMA ignore_constraint_checks=ON;
+PRAGMA ingore_constraint_checks=OFF;
+PRAGMA journal_size_limit=20;
+PRAGMA legacy_alter_table=ON;
+PRAGMA legacy_alter_table=OFF;
+PRAGMA legacy_file_format=ON;
+PRAGMA legacy_file_format=OFF;
+PRAGMA max_page_count=50;
+PRAGMA read_uncommitted=ON;
+PRAGMA recursive_triggers=ON;
+PRAGMA reverse_unordered_selects=ON;
+PRAGMA sort_column_names=OFF;
+PRAGMA stats('t1');
+PRAGMA user_version=12345;
+PRAGMA wal_autocheckpoint=OFF;
+PRAGMA writable_schema=ON;
+PRAGMA query_only=ON;
+

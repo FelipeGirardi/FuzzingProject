@@ -1,0 +1,46 @@
+.open --hexdb
+| size 20480 pagesize 4096 filename yuliang001.txt.db
+| page 1 offset 0
+|      0: 53 51 4c 69 74 65 20 66 6f 72 6d 61 74 20 33 00   SQLite format 3.
+|     16: 10 00 01 01 00 40 20 20 00 00 00 00 00 00 00 05   .....@  ........
+|     32: 00 00 00 00 00 00 00 00 00 00 00 04 00 00 00 04   ................
+|     48: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00   ................
+|     96: 00 00 00 00 0d 00 00 00 04 0f 54 00 0f d8 0f b0   ..........T.....
+|    112: 0f 7a 0f 54 00 00 00 00 00 00 00 00 00 00 00 00   .z.T............
+|   3920: 00 00 00 00 24 04 06 17 11 11 01 35 74 61 62 6c   ....$......5tabl
+|   3936: 65 74 34 74 34 05 43 52 45 41 54 45 20 54 41 42   et4t4.CREATE TAB
+|   3952: 4c 45 20 74 34 28 63 2c 64 29 34 03 06 17 11 11   LE t4(c,d)4.....
+|   3968: 01 55 74 61 62 6c 65 74 33 74 33 04 43 52 45 41   .Utablet3t3.CREA
+|   3984: 54 45 20 54 41 42 4c 45 20 74 33 28 63 20 49 4e   TE TABLE t3(c IN
+|   4000: 54 2c 20 64 20 49 4e 54 2c 20 65 20 49 4e 54 29   T, d INT, e INT)
+|   4016: 26 02 06 17 11 11 01 39 74 61 62 6c 65 74 32 74   &......9tablet2t
+|   4032: 32 03 43 52 45 41 54 45 20 54 41 42 4c 45 20 74   2.CREATE TABLE t
+|   4048: 32 28 62 20 49 4e 54 29 26 01 06 17 11 11 01 39   2(b INT)&......9
+|   4064: 74 61 62 6c 65 74 31 74 31 02 43 52 45 41 54 45   tablet1t1.CREATE
+|   4080: 20 54 41 42 4c 45 20 74 31 28 61 20 49 4e 54 29    TABLE t1(a INT)
+| page 2 offset 4096
+|      0: 0d 00 00 00 01 0f fc 00 0f fc 00 00 00 00 00 00   ................
+|   4080: 00 00 00 00 00 00 00 00 00 00 00 00 02 01 02 09   ................
+| page 3 offset 8192
+|      0: 0d 00 00 00 01 0f fb 00 0f fb 00 00 00 00 00 00   ................
+|   4080: 00 00 00 00 00 00 00 00 00 00 00 03 01 02 01 02   ................
+| page 4 offset 12288
+|      0: 0d 00 00 00 00 10 00 00 00 00 00 00 00 00 00 00   ................
+| page 5 offset 16384
+|      0: 0d 00 00 00 02 0f eb 00 0f f6 0f eb 00 00 00 00   ................
+|   4064: 00 00 00 00 00 00 00 00 00 00 00 09 02 03 01 17   ................
+|   4080: 02 6d 61 69 6e 32 08 01 03 09 17 6d 61 69 6e 31   .main2.....main1
+| end yuliang001.txt.db
+.testctrl prng_seed 1 db
+.testctrl internal_functions
+WITH t1 AS (SELECT b+100 AS a FROM t2) UPDATE t1 SET a=(SELECT a FROM t1);
+WITH t1 AS (SELECT b+100 AS a FROM t2) UPDATE t1 SET a=a+b FROM t2;
+CREATE TRIGGER r1 AFTER INSERT ON t1 BEGIN INSERT INTO t3
+SELECT * FROM (WITH t4(c,d) AS (VALUES(1, 'cte1'), (2, 'cte2'))
+SELECT new.a, (SELECT d FROM t4 WHERE c=new.a), (SELECT d FROM main.t4 WHERE c=new.a)
+);
+END;
+INSERT INTO t1 VALUES(1);
+SELECT * FROM t1;
+SELECT * FROM t4;
+

@@ -1,0 +1,1 @@
+SELECT 1 FROM sqlite_master WHERE '00000' = name COLLATE nocase;

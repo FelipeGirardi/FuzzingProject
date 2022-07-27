@@ -1,0 +1,1 @@
+SELECT replace('00á0a','a','00000');

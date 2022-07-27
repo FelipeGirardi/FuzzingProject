@@ -1,0 +1,1 @@
+SELECT likelihood(100,00.0+0.0);

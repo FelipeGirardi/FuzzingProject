@@ -1,0 +1,4 @@
+CREATE TABLE t3(a EXINTEGER PRIMARY KEY, b, c, d, e, f);
+CREATE INDEX t00000 ON t3(b, c, d, e);
+EXPLAIN QUERY PLAN
+SELECT a FR,d DESC, e DESC, b,  e DESC, b,  b DESC,d DESC, e DESC, b,  e DESC, b, c, a DESC;

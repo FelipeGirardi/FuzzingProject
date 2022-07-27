@@ -1,0 +1,2 @@
+PRAGMA locking_mode = exive;
+PRAGMA locking_mode;

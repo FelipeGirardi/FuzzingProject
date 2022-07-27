@@ -1,0 +1,1 @@
+WITH  [a] AS ( SELECT * FROM t0) DELETE FROM t0;

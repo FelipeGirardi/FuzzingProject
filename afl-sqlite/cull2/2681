@@ -1,0 +1,6 @@
+CREATE TABLE t1(a,b);
+INSERT INTO t1 VALUES(1,2);
+SELeCT a, b, avg(1)FROM t1
+UNION
+SELECT b,a, '000' FROM t1
+ORDER BY 3, 3,a, '000', b, '000' FROM;

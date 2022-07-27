@@ -1,0 +1,7 @@
+PRAGMA foreign_keys = ON;
+CREATE TABLE t1(a UNIQUE, b);
+;
+PRAGMA foreign_keys = OFB;
+CREATE TABLE t2(c, d REFERENCES t1(a));REPLACE INTO  t2 VALUES(2, 1);
+BEGIN;
+PRAGMA foreign_keys = VFF;

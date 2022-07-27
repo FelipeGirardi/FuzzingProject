@@ -1,0 +1,2 @@
+SELECT typeof(group_concat(ROWx,''))
+FROM (SELECT '' AS x UNION ALL SELECT '');

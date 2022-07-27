@@ -1,0 +1,44 @@
+.open --hexdb
+| size 8192 pagesize 4096 filename winfunc009.txt.db
+| page 1 offset 0
+|      0: 53 51 4c 69 74 65 20 66 6f 72 6d 61 74 20 33 00   SQLite format 3.
+|     16: 10 00 01 01 00 40 20 20 00 00 00 00 00 00 00 02   .....@  ........
+|     32: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 04   ................
+|     48: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00   ................
+|     96: 00 00 00 00 0d 00 00 00 01 0f d9 00 0f d9 00 00   ................
+|   4048: 00 00 00 00 00 00 00 00 00 25 01 06 17 11 11 01   .........%......
+|   4064: 37 74 61 62 6c 65 74 31 74 31 02 43 52 45 41 54   7tablet1t1.CREAT
+|   4080: 45 20 54 41 42 4c 45 20 74 31 28 61 2c 20 62 29   E TABLE t1(a, b)
+| page 2 offset 4096
+|      0: 0d 00 00 00 06 0f c6 00 0f f7 0f ee 0f e3 0f d9   ................
+|     16: 0f cf 0f c6 00 00 00 00 00 00 00 00 00 00 00 00   ................
+|   4032: 00 00 00 00 00 00 07 06 03 0f 13 63 73 69 78 08   ...........csix.
+|   4048: 05 03 0f 15 63 66 69 76 65 08 04 03 0f 15 62 66   ....cfive.....bf
+|   4064: 6f 75 72 09 03 03 0f 17 61 74 68 72 65 65 07 02   our.....athree..
+|   4080: 03 0f 13 61 74 77 6f 07 01 03 0f 13 61 6f 6e 65   ...atwo.....aone
+| end winfunc009.txt.db
+.testctrl prng_seed 1 db
+.testctrl internal_functions
+SELECT a                        AS a,
+       row_number() OVER win    AS row_number,
+       rank() OVER win          AS rank,
+       dense_rank() OVER win    AS dense_rank,
+       percent_rank() OVER win  AS percent_rank,
+       printf('%.2f',cume_dist() OVER win)     AS cume_dist
+FROM t1
+WINDOW win AS (ORDER BY a);
+SELECT a                        AS a,
+       b                        AS b,
+       ntile(2) OVER win        AS ntile_2,
+       ntile(4) OVER win        AS ntile_4
+FROM t1
+WINDOW win AS (ORDER BY a);
+SELECT b                          AS b,
+       lead(b, 2, 'n/a') OVER win AS lead,
+       lag(b) OVER win            AS lag,
+       first_value(b) OVER win    AS first_value,
+       last_value(b) OVER win     AS last_value,
+       nth_value(b, 3) OVER win   AS nth_value_3
+FROM t1
+WINDOW win AS (ORDER BY b ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)
+

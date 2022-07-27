@@ -1,0 +1,3 @@
+PRAGMA journal_size_limit = -4;
+BEGIN;
+UPDATE t0 SET a = r000000000(1000);

@@ -1,0 +1,1 @@
+CREATE TABLE t0(a PRIMARY KEY, b load_extension(1,1), d, FOREIGN KEY(r0000) REFERENCES t0(a));

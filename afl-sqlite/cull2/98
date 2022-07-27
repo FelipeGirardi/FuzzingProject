@@ -1,0 +1,5 @@
+CREATE TABLE t0(x, y);
+CREATE INDEX s0 ON t0(x, y);
+CREATE VIEW v0 AS SELECT /*  ;*/ * FROM t0;
+ANALYZE;SELECT /*  ;*/ * FROM t0;
+AN

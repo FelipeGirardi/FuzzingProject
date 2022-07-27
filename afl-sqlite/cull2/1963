@@ -1,0 +1,1 @@
+ATTACH '000000000000' as julianday(CURRENT_DATE);

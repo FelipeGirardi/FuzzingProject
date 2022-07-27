@@ -1,0 +1,39 @@
+.open --hexdb
+| size 8192 pagesize 4096 filename select004.txt.db
+| page 1 offset 0
+|      0: 53 51 4c 69 74 65 20 66 6f 72 6d 61 74 20 33 00   SQLite format 3.
+|     16: 10 00 01 01 00 40 20 20 00 00 00 00 00 00 00 02   .....@  ........
+|     32: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 04   ................
+|     48: 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00   ................
+|     96: 00 00 00 00 0d 00 00 00 01 0f d8 00 0f d8 00 00   ................
+|   4048: 00 00 00 00 00 00 00 00 26 01 06 17 11 11 01 39   ........&......9
+|   4064: 74 61 62 6c 65 74 31 74 31 02 43 52 45 41 54 45   tablet1t1.CREATE
+|   4080: 20 54 41 42 4c 45 20 74 31 28 61 2c 62 2c 63 29    TABLE t1(a,b,c)
+| page 2 offset 4096
+|      0: 0d 00 00 00 03 0f e4 00 0f f8 0f ee 0f e4 00 00   ................
+|   4064: 00 00 00 00 08 03 04 01 01 02 03 21 01 4d 08 02   ...........!.M..
+|   4080: 04 01 01 02 02 16 00 de 06 01 04 09 01 01 0b 6f   ...............o
+| end select004.txt.db
+.testctrl prng_seed 1 db
+.testctrl internal_functions
+CREATE TABLE gate1(a INTEGER PRIMARY KEY);
+INSERT INTO gate1 VALUES(3),(11);
+SELECT b FROM t1 WHERE a IN gate1;
+SELECT b FROM t1 WHERE a NOT IN (SELECT a FROM gate1) ORDER BY b;
+SELECT b FROM t1 WHERE a IN (SELECT * FROM gate1) ORDER BY b;
+CREATE TABLE gate2(b INTEGER PRIMARY KEY) WITHOUT ROWID;
+INSERT INTO gate2 VALUES(0),(2);
+SELECT b FROM t1 WHERE a IN (SELECT a FROM gate1 UNION SELECT b FROM gate2)
+ ORDER BY b;
+SELECT b FROM t1 WHERE a IN (9,1,8,2) ORDER BY b;
+SELECT b FROM t1 WHERE a IN (SELECT count(*) FROM gate2) ORDER BY b;
+SELECT b FROM t1 WHERE a IN (SELECT DISTINCT a%5 FROM gate1) ORDER BY b;
+SELECT b FROM t1 WHERE a IN (SELECT a%5 FROM gate1) ORDER BY b;
+CREATE TABLE gate3(c INTEGER PRIMARY KEY);
+INSERT INTO gate3 VALUES(1),(2),(3);
+SELECT b FROM t1 WHERE a IN (SELECT c FROM gate3 LIMIT 2) ORDER BY b;
+SELECT b FROM t1 WHERE a IN (SELECT c FROM gate3 LIMIT 1 OFFSET 1) ORDER BY b;
+SELECT b FROM t1 WHERE a IN (SELECT c FROM gate3 WHERE rowid>1) ORDER BY b;
+SELECT b FROM t1 WHERE a IN (SELECT a FROM gate1, gate2) ORDER BY b;
+SELECT b FROM t1 WHERE a IN (SELECT * FROM (SELECT 1 UNION SELECT 2));
+

@@ -1,0 +1,2 @@
+CREATE TABLE t0(a,b,c,d,e, PRIMARY KEY(a,b,c,d,e));
+SELECT  total(1) FROM t0 WHERE a=? AND b=? AND c=? AND d=? AND a=? AND b=? AND e=?=? AND c=? AND d;

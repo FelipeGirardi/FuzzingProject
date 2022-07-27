@@ -1,0 +1,2 @@
+CREATE TABLE t00b AS SELECT 4 qlite, 5 AS '',  6 US '';
+SELECT *0FROM t00b:í

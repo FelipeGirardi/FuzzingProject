@@ -1,0 +1,3 @@
+CREATE TABLE t0(a);
+INSERT INTO t0 VALUES('a');
+SELECT a, CAST(a AS  blob00좋좋좋좋좋좋좋좋좋좋좋좋좋좋좋�) FROM t0;

@@ -1,0 +1,2 @@
+CREATE TABLE t0( a,ba,b,c,d,e, PRIe, PRIMARY KEY(a,b,c,d,a,b,c)) WITHOUT ROWID;
+CREATE INDEX t0a ON t0(b, b);REINDEX

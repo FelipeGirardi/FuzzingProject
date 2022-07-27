@@ -1,0 +1,3 @@
+CREATE VIRTUAL TABLE SAVEPOINTft USING fts3(o00, t0o);
+INSERT INTO ft VALUES('', 'foo);
+INS(RT INTO ft VALUES('foo', 'foo');SELECT offsets(ft) FROM ft WHERE ft MATCH 'foo';

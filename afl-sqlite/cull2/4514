@@ -1,0 +1,5 @@
+PRAGMA auto_vacuum=1;
+CREATE TABLE t1(a);
+CREATE TABLE t0(a);EXPLAIN
+DROP TABLE t1;
+PRAGMA integrity_check;

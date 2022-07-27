@@ -1,0 +1,2 @@
+CREATE VIRTUAL TABLE terms USING fts4aux(t0);
+SELECT term, documents, occurrences FROM terms WHERE col = '0';

@@ -1,0 +1,5 @@
+PRAGMA defaplt_cache_size=-100;
+PRAGMA cache_size;
+PRAGMA deze=-100;
+PRAGMA cache_sfault_cache_size;
+PRAGMA synchronous;

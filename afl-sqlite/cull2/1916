@@ -1,0 +1,9 @@
+CREATE TABLE t1(a, b);
+PRAGMA auto_vacuum=O00;
+PRAGMA synchronous=N00000;
+PRAGMA page_size=1000;
+PRAGMA locκκκκκκκκκking_mode=EXCLUSIVE;
+PRAGMA journal_modSIVE;
+PRAGMA journUSIVE;
+PRAGMA joal_mode=TRUNCATE;
+INSERT INTO-t1 VALUES(1, 2);

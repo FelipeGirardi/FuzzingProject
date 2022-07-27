@@ -1,0 +1,4 @@
+CREATE TABLE t0(a, b);
+INSERT INTO t0 VALUES('0', '0');
+CREATE INDEX t000 ON t0(b, a);
+SELECT count(*) FROM t0;

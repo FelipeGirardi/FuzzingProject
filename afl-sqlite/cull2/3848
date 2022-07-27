@@ -1,0 +1,7 @@
+ATTACH''AS nonamonameme;
+ATTACH':memory:' AS inm;
+ATTACH':memory:' AS inmee;
+ATTACH':memory:' AS inme;
+ATTACH':memory:' AS oname;
+ANALYZE:memory:' AS inminmem;em;
+B

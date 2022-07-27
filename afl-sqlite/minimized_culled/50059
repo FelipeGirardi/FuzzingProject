@@ -1,0 +1,2 @@
+CREATE TABLE t01(n0me);
+SELECT min(n0me) FROM t01 GROUP BY lower(n0me);
