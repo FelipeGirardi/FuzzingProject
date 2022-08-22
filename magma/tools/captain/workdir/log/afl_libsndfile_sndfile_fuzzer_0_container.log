@@ -1,9 +1,0 @@
-[2022-07-01 21:15] Container for afl/libsndfile/sndfile_fuzzer started in 84f7586a5b26
-/magma/targets/libsndfile/corpus/sndfile_fuzzer/broadcast.rf64: exit_code 0 bug SND017
-/magma/targets/libsndfile/corpus/sndfile_fuzzer/broadcast.wavex: exit_code 0 bug SND017
-/magma/targets/libsndfile/corpus/sndfile_fuzzer/cart.rf64: exit_code 0 bug SND017
-/magma/targets/libsndfile/corpus/sndfile_fuzzer/chanmap.rf64: exit_code 0 bug SND017
-/magma/targets/libsndfile/corpus/sndfile_fuzzer/chanmap.wavex: exit_code 0 bug SND017
-/magma/targets/libsndfile/corpus/sndfile_fuzzer/chunks_pcm16.rf64: exit_code 0 bug SND017
-/magma/targets/libsndfile/corpus/sndfile_fuzzer/chunks_pcm16.wavex: exit_code 0 bug SND017
-Campaign launched at 2022-07-01 19:15

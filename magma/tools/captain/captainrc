@@ -47,7 +47,7 @@ POLL=5
 # TMPFS_SIZE=16g
 
 # [MAGMA]: path to magma root (default: ../../)
-# MAGMA=/path/to/magma/
+# MAGMA=../../
 
 # [CANARY_MODE]: defines the mode of canaries at compile time (default: 1)
 # - 1: without fixes, with canaries
@@ -71,15 +71,15 @@ POLL=5
 ###
 
 # FUZZERS: an array of fuzzer names (from magma/fuzzers/*) to evaluate
-FUZZERS=(afl aflfast nautilus)
+FUZZERS=(nautilus)
 
 # [fuzzer_TARGETS]: an array of target names (from magma/targets/*) to fuzz with
 # `fuzzer`. The `fuzzer` prefix is a fuzzer listed in the FUZZERS array
 # (default: all targets)
 # afl_TARGETS=(libpng libtiff libxml2)
-afl_TARGETS=(php sqlite3 lua libxml2)
-aflfast_TARGETS=(php sqlite3 lua libxml2)
-nautilus_TARGETS=(php sqlite3 lua libxml2)
+# afl_TARGETS=(php sqlite3 lua libxml2)
+# aflfast_TARGETS=(php sqlite3 lua libxml2)
+nautilus_TARGETS=(sqlite3)
 
 # [fuzzer_target_PROGRAMS]: an array of program names (from
 # magma/targets/target/configrc) to use as execution drivers when fuzzing the
