@@ -13,5 +13,4 @@
 
 mkdir -p "$SHARED/findings" "$SHARED/output"
 cd "$FUZZER/repo/nautilus"
-cargo build --release
 ./target/release/fuzzer -- -o "$SHARED/output" -- "$OUT/$PROGRAM" @@
