@@ -1,0 +1,84 @@
+[2022-09-01 13:08] Container for superion/php/json started in 0b3dfdd36288
+Campaign launched at 2022-09-01 11:08
+/magma/fuzzers/superion/run.sh: line 17: cmake: command not found
+make: *** No targets specified and no makefile found.  Stop.
+In file included from [01m[K../runtime/src/atn/PredictionContext.h:10:0[m[K,
+                 from [01m[K../runtime/src/LexerInterpreter.h:9[m[K,
+                 from [01m[K../runtime/src/antlr4-runtime.h:32[m[K,
+                 from [01m[KECMAScriptBaseVisitor.h:8[m[K,
+                 from [01m[KECMAScriptBaseVisitor.cpp:5[m[K:
+[01m[K../runtime/src/atn/ATNState.h:73:26:[m[K [01;35m[Kwarning: [m[Ktype attributes ignored after type is already defined [[01;35m[K-Wattributes[m[K]
+   class ANTLR4CPP_PUBLIC [01;35m[KATN[m[K;
+                          [01;35m[K^~~[m[K
+In file included from [01m[K../runtime/src/atn/PredictionContext.h:10:0[m[K,
+                 from [01m[K../runtime/src/LexerInterpreter.h:9[m[K,
+                 from [01m[K../runtime/src/antlr4-runtime.h:32[m[K,
+                 from [01m[KECMAScriptLexer.h:7[m[K,
+                 from [01m[KECMAScriptLexer.cpp:5[m[K:
+[01m[K../runtime/src/atn/ATNState.h:73:26:[m[K [01;35m[Kwarning: [m[Ktype attributes ignored after type is already defined [[01;35m[K-Wattributes[m[K]
+   class ANTLR4CPP_PUBLIC [01;35m[KATN[m[K;
+                          [01;35m[K^~~[m[K
+In file included from [01m[K../runtime/src/atn/PredictionContext.h:10:0[m[K,
+                 from [01m[K../runtime/src/LexerInterpreter.h:9[m[K,
+                 from [01m[K../runtime/src/antlr4-runtime.h:32[m[K,
+                 from [01m[KECMAScriptVisitor.h:7[m[K,
+                 from [01m[KECMAScriptParser.cpp:5[m[K:
+[01m[K../runtime/src/atn/ATNState.h:73:26:[m[K [01;35m[Kwarning: [m[Ktype attributes ignored after type is already defined [[01;35m[K-Wattributes[m[K]
+   class ANTLR4CPP_PUBLIC [01;35m[KATN[m[K;
+                          [01;35m[K^~~[m[K
+In file included from [01m[K../runtime/src/atn/PredictionContext.h:10:0[m[K,
+                 from [01m[K../runtime/src/LexerInterpreter.h:9[m[K,
+                 from [01m[K../runtime/src/antlr4-runtime.h:32[m[K,
+                 from [01m[KECMAScriptSecondVisitor.h:8[m[K,
+                 from [01m[KECMAScriptSecondVisitor.cpp:5[m[K:
+[01m[K../runtime/src/atn/ATNState.h:73:26:[m[K [01;35m[Kwarning: [m[Ktype attributes ignored after type is already defined [[01;35m[K-Wattributes[m[K]
+   class ANTLR4CPP_PUBLIC [01;35m[KATN[m[K;
+                          [01;35m[K^~~[m[K
+In file included from [01m[K../runtime/src/atn/PredictionContext.h:10:0[m[K,
+                 from [01m[K../runtime/src/LexerInterpreter.h:9[m[K,
+                 from [01m[K../runtime/src/antlr4-runtime.h:32[m[K,
+                 from [01m[KECMAScriptVisitor.h:7[m[K,
+                 from [01m[KECMAScriptVisitor.cpp:5[m[K:
+[01m[K../runtime/src/atn/ATNState.h:73:26:[m[K [01;35m[Kwarning: [m[Ktype attributes ignored after type is already defined [[01;35m[K-Wattributes[m[K]
+   class ANTLR4CPP_PUBLIC [01;35m[KATN[m[K;
+                          [01;35m[K^~~[m[K
+In file included from [01m[K../runtime/src/atn/PredictionContext.h:10:0[m[K,
+                 from [01m[K../runtime/src/LexerInterpreter.h:9[m[K,
+                 from [01m[K../runtime/src/antlr4-runtime.h:32[m[K,
+                 from [01m[KTreeMutation.cpp:3[m[K:
+[01m[K../runtime/src/atn/ATNState.h:73:26:[m[K [01;35m[Kwarning: [m[Ktype attributes ignored after type is already defined [[01;35m[K-Wattributes[m[K]
+   class ANTLR4CPP_PUBLIC [01;35m[KATN[m[K;
+                          [01;35m[K^~~[m[K
+[01m[Kg++:[m[K [01;31m[Kerror: [m[K../dist/libantlr4-runtime.a: No such file or directory
+make: *** [test_deps] Error 1
+[01m[Kgcc:[m[K [01;31m[Kerror: [m[K./tree_mutation/php_parser/libTreeMutation.so: No such file or directory
+make: *** [afl-fuzz] Error 1
+
+Redirecting output to 'wget-log'.
+/magma/fuzzers/superion/run.sh: line 34: ./buildconf: No such file or directory
+/magma/fuzzers/superion/run.sh: line 35: ./configure: No such file or directory
+/bin/sh: 1: /home/path_to_Superion/afl-gcc: not found
+make: *** [test_x86] Error 1
+/magma/fuzzers/superion/run.sh: line 38: ./afl-fuzz: No such file or directory
+/magma/fuzzers/superion/run.sh: line 39: ./afl-fuzz: No such file or directory
+/magma/fuzzers/superion/run.sh: line 40: ./afl-fuzz: No such file or directory
+/magma/fuzzers/superion/run.sh: line 41: ./afl-fuzz: No such file or directory
+[*] Checking for working 'llvm-config'...
+[-] Oops, can't find 'llvm-config'. Install clang or set $LLVM_CONFIG or $PATH beforehand.
+    (Sometimes, the binary will be named llvm-config-3.5 or something like that.)
+Makefile:67: recipe for target 'test_deps' failed
+[*] Checking for the ability to compile x86 code...
+[+] Everything seems to be working, ready to compile.
+/usr/bin/gcc -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gcc.c -o afl-gcc -L/magma_out -g -ldl
+set -e; for i in afl-g++ afl-clang afl-clang++; do ln -sf afl-gcc $i; done
+/usr/bin/gcc -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-fuzz.c -o afl-fuzz -L/magma_out -g -ldl ./tree_mutation/php_parser/libTreeMutation.so
+Makefile:73: recipe for target 'afl-fuzz' failed
+[*] Checking for the ability to compile x86 code...
+
+Oops, looks like your compiler can't generate x86 code.
+
+Don't panic! You can use the LLVM or QEMU mode, but see docs/INSTALL first.
+(To ignore this error, set AFL_NO_X86=1 and try again.)
+
+Makefile:52: recipe for target 'test_x86' failed
+Campaign terminated at 2022-09-01 11:08

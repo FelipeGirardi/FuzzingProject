@@ -71,7 +71,7 @@ POLL=5
 ###
 
 # FUZZERS: an array of fuzzer names (from magma/fuzzers/*) to evaluate
-FUZZERS=(nautilus)
+FUZZERS=(superion)
 
 # [fuzzer_TARGETS]: an array of target names (from magma/targets/*) to fuzz with
 # `fuzzer`. The `fuzzer` prefix is a fuzzer listed in the FUZZERS array
@@ -79,7 +79,7 @@ FUZZERS=(nautilus)
 # afl_TARGETS=(libpng libtiff libxml2)
 # afl_TARGETS=(php sqlite3 lua libxml2)
 # aflfast_TARGETS=(php sqlite3 lua libxml2)
-nautilus_TARGETS=(sqlite3)
+superion_TARGETS=(php)
 
 # [fuzzer_target_PROGRAMS]: an array of program names (from
 # magma/targets/target/configrc) to use as execution drivers when fuzzing the

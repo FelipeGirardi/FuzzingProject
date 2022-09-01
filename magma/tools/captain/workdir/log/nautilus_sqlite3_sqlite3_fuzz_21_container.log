@@ -1,0 +1,4 @@
+[2022-08-31 19:08] Container for nautilus/sqlite3/sqlite3_fuzz started in b6ab1ffbfbb7
+Campaign launched at 2022-08-31 17:08
+/magma/fuzzers/nautilus/run.sh: line 16: ./target/release/fuzzer: No such file or directory
+Campaign terminated at 2022-08-31 17:08
